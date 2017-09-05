@@ -1,5 +1,5 @@
 
-# Created by https://www.gitignore.io/api/git,android,androidstudio
+# Created by https://www.gitignore.io/api/java,macos,android,androidstudio
 
 ### Android ###
 # Built application files
@@ -160,7 +160,46 @@ fabric.properties
 
 !/gradle/wrapper/gradle-wrapper.jar
 
-### Git ###
-*.orig
+### Java ###
+# Compiled class file
 
-# End of https://www.gitignore.io/api/git,android,androidstudio
+# Log file
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+
+# Package Files #
+*.jar
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+
+### macOS ###
+*.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.TemporaryItems
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# End of https://www.gitignore.io/api/java,macos,android,androidstudio
