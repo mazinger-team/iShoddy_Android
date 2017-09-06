@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.mazinger.ishoddy.R;
 
-public class ListCategoriesActivity extends AppCompatActivity
+public class CategoriesListActivity extends AppCompatActivity
 {
 
     @Override

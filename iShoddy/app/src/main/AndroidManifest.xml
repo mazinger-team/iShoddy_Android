@@ -12,7 +12,7 @@
         android:theme="@style/AppTheme">
 
         <!-- Activities -->
-        <activity android:name=".activities.ListCategoriesActivity">
+        <activity android:name=".activities.CategoriesListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
