@@ -1,10 +1,10 @@
 package com.mazinger.ishoddy;
 
-import android.app.Application;
+import android.support.multidex.MultiDexApplication;
 import android.util.Log;
 
 
-public class iShoddyApp extends Application
+public class iShoddyApp extends MultiDexApplication
 {
 
     public static final String APP_NAME = iShoddyApp.class.getCanonicalName();
