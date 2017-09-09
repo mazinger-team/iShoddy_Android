@@ -1,10 +1,14 @@
 package com.mazinger.ishoddy.activities;
 
 import android.os.Bundle;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.mazinger.ishoddy.R;
 import com.mazinger.ishoddy.adapter.CategoryRecyclerViewAdapter;
@@ -15,7 +19,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class CategoriesListActivity extends AppCompatActivity
+public class CategoriesListActivity extends AppCompatActivity implements SearchView.OnQueryTextListener
 {
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
@@ -46,6 +50,45 @@ public class CategoriesListActivity extends AppCompatActivity
 
         mAdapter = new CategoryRecyclerViewAdapter(mArrayList);
         mRecyclerView.setAdapter(mAdapter);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        getMenuInflater().inflate(R.menu.menu_items, menu);
+
+        MenuItem menuItem = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
+        searchView.setOnQueryTextListener(this);
+
+        return true;
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query)
+    {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText)
+    {
+        newText = newText.toLowerCase();
+        ArrayList<Category> newList = new ArrayList<>();
+
+        for (Category category : mArrayList)
+        {
+            String name = category.getName().toLowerCase();
+
+            if (name.contains(newText))
+            {
+                newList.add(category);
+            }
+        }
+
+        mAdapter.setFilter(newList);
+
+        return true;
     }
 }
 
