@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">iShoddy</string>
+    <string name="request_service_button_text">Solicita un Servicio</string>
+    <string name="offer_service_button_text">Ofrece un Servicio</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
