@@ -1,5 +1,7 @@
 package com.mazinger.ishoddy.adapter;
 
+import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,11 +17,17 @@ import java.util.ArrayList;
 public class CategoryRecyclerViewAdapter extends RecyclerView.Adapter<CategoryRecyclerViewAdapter.ViewHolder>
 {
     ArrayList<Category> mCategoryList = new ArrayList<>();
-    private View.OnClickListener mOnClickListener;
 
-    public CategoryRecyclerViewAdapter(ArrayList<Category> categoryList)
+    private View.OnClickListener mOnClickListener;
+    private Typeface mTextFace = null;
+    private Context mContext = null;
+
+    public CategoryRecyclerViewAdapter(Context context, ArrayList<Category> categoryList)
     {
+        mContext = context;
         mCategoryList = categoryList;
+
+        mTextFace = Typeface.createFromAsset(mContext.getAssets(), "SFText-Regular.otf");
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
@@ -41,6 +49,7 @@ public class CategoryRecyclerViewAdapter extends RecyclerView.Adapter<CategoryRe
     public void onBindViewHolder(CategoryRecyclerViewAdapter.ViewHolder holder, int position)
     {
         holder.mTextView.setText(mCategoryList.get(position).getName());
+        holder.mTextView.setTypeface(mTextFace);
     }
 
     @Override

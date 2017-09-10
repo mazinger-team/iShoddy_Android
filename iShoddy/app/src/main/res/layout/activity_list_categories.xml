@@ -21,29 +21,24 @@
 
         <ru.dimorinny.floatingtextbutton.FloatingTextButton
             android:id="@+id/activity_list_categories_request_service"
-            android:layout_width="wrap_content"
+            android:layout_width="160dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|left"
-            android:layout_marginLeft="12dp"
-            android:layout_marginRight="11dp"
-            android:layout_marginBottom="14dp"
+            android:layout_gravity="start|bottom"
+            android:layout_marginBottom="@dimen/floating_text_button_margin_bottom"
+            android:layout_marginStart="8dp"
             app:floating_background_color="@color/darkPurple"
             app:floating_title="@string/request_service_button_text"
-            app:floating_title_color="@android:color/white"
-            />
+            app:floating_title_color="@android:color/white"/>
 
         <ru.dimorinny.floatingtextbutton.FloatingTextButton
             android:id="@+id/activity_list_categories_offer_service"
-            android:layout_width="wrap_content"
+            android:layout_width="160dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"
-            android:layout_marginLeft="11dp"
-            android:layout_marginRight="12dp"
-            android:layout_marginBottom="14dp"
+            android:layout_gravity="end|bottom"
+            android:layout_marginBottom="@dimen/floating_text_button_margin_bottom"
             app:floating_background_color="@color/darkPurple"
             app:floating_title="@string/offer_service_button_text"
-            app:floating_title_color="@android:color/white"
-            />
+            app:floating_title_color="@android:color/white"/>
 
     </android.support.design.widget.CoordinatorLayout>
 

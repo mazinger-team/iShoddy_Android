@@ -38,6 +38,7 @@ public class CategoriesListActivity extends AppCompatActivity implements SearchV
         ButterKnife.bind(this);
         setSupportActionBar(mToolbar);
 
+
         mRecyclerView = (RecyclerView) findViewById(R.id.activity_list_categories_recycler_view);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
@@ -48,7 +49,7 @@ public class CategoriesListActivity extends AppCompatActivity implements SearchV
         mArrayList.add(new Category("Pintores"));
         mArrayList.add(new Category("Carpinteros"));
 
-        mAdapter = new CategoryRecyclerViewAdapter(mArrayList);
+        mAdapter = new CategoryRecyclerViewAdapter(this, mArrayList);
         mRecyclerView.setAdapter(mAdapter);
     }
 
