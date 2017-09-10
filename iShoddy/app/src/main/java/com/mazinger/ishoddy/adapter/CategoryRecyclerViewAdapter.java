@@ -10,19 +10,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mazinger.ishoddy.R;
-import com.mazinger.ishoddy.model.Category;
-
-import java.util.ArrayList;
+import com.mazinger.ishoddy.domain.model.Categories;
+import com.mazinger.ishoddy.domain.model.Category;
 
 public class CategoryRecyclerViewAdapter extends RecyclerView.Adapter<CategoryRecyclerViewAdapter.ViewHolder>
 {
-    ArrayList<Category> mCategoryList = new ArrayList<>();
+    Categories mCategoryList = new Categories();
 
     private View.OnClickListener mOnClickListener;
     private Typeface mTextFace = null;
     private Context mContext = null;
 
-    public CategoryRecyclerViewAdapter(Context context, ArrayList<Category> categoryList)
+    public CategoryRecyclerViewAdapter(Context context, Categories categoryList)
     {
         mContext = context;
         mCategoryList = categoryList;
@@ -55,7 +54,7 @@ public class CategoryRecyclerViewAdapter extends RecyclerView.Adapter<CategoryRe
     @Override
     public int getItemCount()
     {
-        return mCategoryList.size();
+        return (int) mCategoryList.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder
@@ -72,10 +71,16 @@ public class CategoryRecyclerViewAdapter extends RecyclerView.Adapter<CategoryRe
         }
     }
 
-    public void setFilter(ArrayList<Category> newList)
+    public void setFilter(Categories newList)
     {
-        mCategoryList = new ArrayList<>();
-        mCategoryList.addAll(newList);
+        mCategoryList = new Categories();
+
+        for (int i = 0; i < newList.size(); i++)
+        {
+            Category category = newList.get(i);
+            mCategoryList.add(category);
+        }
+
         notifyDataSetChanged();
     }
 }

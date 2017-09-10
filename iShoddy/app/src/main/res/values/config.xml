@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="BASE_URL"></string>
+    <string name="ENDPOINT_CATEGORIES">http://www.mocky.io/v2/59b5d1a0250000e51648d76a</string>
 </resources>

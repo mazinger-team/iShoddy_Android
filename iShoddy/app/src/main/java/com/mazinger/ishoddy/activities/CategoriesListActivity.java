@@ -12,9 +12,12 @@ import android.view.MenuItem;
 
 import com.mazinger.ishoddy.R;
 import com.mazinger.ishoddy.adapter.CategoryRecyclerViewAdapter;
-import com.mazinger.ishoddy.model.Category;
-
-import java.util.ArrayList;
+import com.mazinger.ishoddy.domain.interactors.GetAllCategoriesInteractor;
+import com.mazinger.ishoddy.domain.interactors.GetAllCategoriesInteractorCompletion;
+import com.mazinger.ishoddy.domain.interactors.GetAllCategoriesInteractorFakeImp;
+import com.mazinger.ishoddy.domain.interactors.InteractorErrorCompletion;
+import com.mazinger.ishoddy.domain.model.Categories;
+import com.mazinger.ishoddy.domain.model.Category;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -27,7 +30,7 @@ public class CategoriesListActivity extends AppCompatActivity implements SearchV
     RecyclerView mRecyclerView;
     CategoryRecyclerViewAdapter mAdapter;
     RecyclerView.LayoutManager mLayoutManager;
-    ArrayList<Category> mArrayList = new ArrayList<>();
+    Categories mCategories = new Categories();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -38,19 +41,35 @@ public class CategoriesListActivity extends AppCompatActivity implements SearchV
         ButterKnife.bind(this);
         setSupportActionBar(mToolbar);
 
-
         mRecyclerView = (RecyclerView) findViewById(R.id.activity_list_categories_recycler_view);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setHasFixedSize(true);
 
-        mArrayList.add(new Category("Fontaneros"));
-        mArrayList.add(new Category("Electricistas"));
-        mArrayList.add(new Category("Pintores"));
-        mArrayList.add(new Category("Carpinteros"));
+        //-- Interactor --
+        GetAllCategoriesInteractor getAllCategoriesInteractor = new GetAllCategoriesInteractorFakeImp();
+        getAllCategoriesInteractor.execute(
+                new GetAllCategoriesInteractorCompletion()
+                {
+                    @Override
+                    public void completion(Categories categories)
+                    {
+                        mAdapter = new CategoryRecyclerViewAdapter(getBaseContext(), categories);
+                        mRecyclerView.setAdapter(mAdapter);
 
-        mAdapter = new CategoryRecyclerViewAdapter(this, mArrayList);
-        mRecyclerView.setAdapter(mAdapter);
+                        mCategories = categories;
+                    }
+                },
+                new InteractorErrorCompletion()
+                {
+                    @Override
+                    public void onError(String errorDescription)
+                    {
+
+                    }
+                }
+        );
+        //--
     }
 
     @Override
@@ -75,10 +94,11 @@ public class CategoriesListActivity extends AppCompatActivity implements SearchV
     public boolean onQueryTextChange(String newText)
     {
         newText = newText.toLowerCase();
-        ArrayList<Category> newList = new ArrayList<>();
+        Categories newList = new Categories();
 
-        for (Category category : mArrayList)
+        for (int i = 0; i < mCategories.size(); i++)
         {
+            Category category = mCategories.get(i);
             String name = category.getName().toLowerCase();
 
             if (name.contains(newText))
