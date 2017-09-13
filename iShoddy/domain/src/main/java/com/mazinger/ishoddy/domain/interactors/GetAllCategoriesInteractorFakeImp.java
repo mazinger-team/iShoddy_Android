@@ -13,16 +13,16 @@ public class GetAllCategoriesInteractorFakeImp implements GetAllCategoriesIntera
     {
         Categories categories = new Categories();
 
-        categories.add(new Category("Fontaneros"));
-        categories.add(new Category("Electricistas"));
-        categories.add(new Category("Pintores"));
-        categories.add(new Category("Carpinteros"));
+//        categories.add(new Category("Fontaneros"));
+//        categories.add(new Category("Electricistas"));
+//        categories.add(new Category("Pintores"));
+//        categories.add(new Category("Carpinteros"));
 
-//        for (int i = 0; i < 10; i++)
-//        {
-//            Category category = Category.of(i, "My category " + i, true);
-//            categories.add(category);
-//        }
+        for (int i = 0; i < 10; i++)
+        {
+            Category category = Category.of(i, "My category " + i, true);
+            categories.add(category);
+        }
 
         if (completion != null)
         {

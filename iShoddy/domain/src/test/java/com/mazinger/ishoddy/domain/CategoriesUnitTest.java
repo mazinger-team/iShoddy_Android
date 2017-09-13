@@ -1,4 +1,4 @@
-package com.mazinger.domain;
+package com.mazinger.ishoddy.domain;
 
 import com.mazinger.ishoddy.domain.model.Categories;
 import com.mazinger.ishoddy.domain.model.Category;

@@ -7,8 +7,10 @@ public class Category
     private String name;
     private long id;
     private boolean active;
-//    private String fechaModificacion:
-//    private String imageUrl;
+    //-- TODO: Dates --
+    private String modificationDate;
+    //--
+    private String urlLogo;
 
     public static Category of(long id, String name, boolean active) {
 
@@ -63,6 +65,28 @@ public class Category
     public Category setActive(boolean active)
     {
         this.active = active;
+        return this;
+    }
+
+    public String getModificationDate()
+    {
+        return modificationDate;
+    }
+
+    public Category setModificationDate(String modificationDate)
+    {
+        this.modificationDate = modificationDate;
+        return this;
+    }
+
+    public String getUrlLogo()
+    {
+        return urlLogo;
+    }
+
+    public Category setUrlLogo(String urlLogo)
+    {
+        this.urlLogo = urlLogo;
         return this;
     }
 }
