@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ENDPOINT_CATEGORIES">http://www.mocky.io/v2/59bb25680f00004907622a7f</string>
+</resources>
+    <!--<string name="ENDPOINT_CATEGORIES">http://www.mocky.io/v2/59b6e7930f00002707712607</string>-->

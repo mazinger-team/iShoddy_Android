@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.mazinger.ishoddy.R;
 import com.mazinger.ishoddy.domain.model.Categories;
 import com.mazinger.ishoddy.domain.model.Category;
+import com.squareup.picasso.Picasso;
 
 public class CategoryRecyclerViewAdapter extends RecyclerView.Adapter<CategoryRecyclerViewAdapter.ViewHolder>
 {
@@ -49,6 +50,16 @@ public class CategoryRecyclerViewAdapter extends RecyclerView.Adapter<CategoryRe
     {
         holder.mTextView.setText(mCategoryList.get(position).getName());
         holder.mTextView.setTypeface(mTextFace);
+        //-- TODO: get image using picasso --
+        if (mCategoryList.get(position).getUrlLogo() != null)
+        {
+            Picasso.with(mContext)
+                    .load(mCategoryList.get(position).getUrlLogo())
+                    .placeholder(R.drawable.image_category_placeholder)
+//                    .networkPolicy(NetworkPolicy.OFFLINE)
+                    .into(holder.mImageView);
+        }
+        //--
     }
 
     @Override

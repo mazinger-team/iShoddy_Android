@@ -3,6 +3,8 @@ package com.mazinger.ishoddy;
 import android.support.multidex.MultiDexApplication;
 import android.util.Log;
 
+import com.squareup.picasso.Picasso;
+
 
 public class iShoddyApp extends MultiDexApplication
 {
@@ -16,6 +18,9 @@ public class iShoddyApp extends MultiDexApplication
 
         // init app
         Log.d(APP_NAME, "App starting");
+
+        Picasso.with(getApplicationContext()).setLoggingEnabled(true);
+        Picasso.with(getApplicationContext()).setIndicatorsEnabled(true);
     }
 
     @Override
