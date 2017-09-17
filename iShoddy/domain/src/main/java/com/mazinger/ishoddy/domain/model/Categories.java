@@ -1,11 +1,25 @@
 package com.mazinger.ishoddy.domain.model;
 
+import android.support.annotation.NonNull;
+
 import java.util.LinkedList;
 import java.util.List;
 
 public class Categories implements CategoriesIterable, CategoriesUpdatable
 {
     private List<Category> categories;
+
+    public static Categories from(@NonNull final List<Category> categoryList)
+    {
+        final Categories categories = new Categories();
+
+        for (final Category category : categoryList)
+        {
+            categories.add(category);
+        }
+
+        return categories;
+    }
 
     public Categories()
     {

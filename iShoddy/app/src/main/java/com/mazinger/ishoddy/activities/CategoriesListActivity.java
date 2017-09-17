@@ -1,6 +1,7 @@
 package com.mazinger.ishoddy.activities;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -18,8 +19,16 @@ import com.mazinger.ishoddy.domain.interactors.GetAllCategoriesInteractor;
 import com.mazinger.ishoddy.domain.interactors.GetAllCategoriesInteractorCompletion;
 import com.mazinger.ishoddy.domain.interactors.GetAllCategoriesInteractorImp;
 import com.mazinger.ishoddy.domain.interactors.InteractorErrorCompletion;
+import com.mazinger.ishoddy.domain.interactors.bd.DAO.GetAllCategoriesFromCacheManagerDAOImp;
+import com.mazinger.ishoddy.domain.interactors.bd.GetAllCategoriesFromCacheInteractor;
+import com.mazinger.ishoddy.domain.interactors.bd.GetAllCategoriesFromCacheInteractorImp;
+import com.mazinger.ishoddy.domain.interactors.bd.GetAllCategoriesFromCacheManager;
 import com.mazinger.ishoddy.domain.interactors.cache.GetIfAllCategoriesAreCachedInteractor;
 import com.mazinger.ishoddy.domain.interactors.cache.GetIfAllCategoriesAreCachedInteractorImp;
+import com.mazinger.ishoddy.domain.interactors.cache.SaveAllCategoriesIntoCacheInteractor;
+import com.mazinger.ishoddy.domain.interactors.cache.SaveAllCategoriesIntoCacheInteractorImp;
+import com.mazinger.ishoddy.domain.interactors.cache.SaveAllCategoriesIntoCacheManageDAOImp;
+import com.mazinger.ishoddy.domain.interactors.cache.SaveAllCategoriesIntoCacheManager;
 import com.mazinger.ishoddy.domain.interactors.cache.SetAllCategoriesAreCachedInteractorImp;
 import com.mazinger.ishoddy.domain.interactors.cache.SetAllCategoryAreCachedInteractor;
 import com.mazinger.ishoddy.domain.managers.network.GetAllCategoriesManagerImpl;
@@ -58,14 +67,14 @@ public class CategoriesListActivity extends AppCompatActivity implements SearchV
         mRecyclerView.setHasFixedSize(true);
         //--
 
-        GetIfAllCategoriesAreCachedInteractor getAllCategoriesCachedInteractor = new GetIfAllCategoriesAreCachedInteractorImp(this);
-        getAllCategoriesCachedInteractor.execute(new Runnable()
+        GetIfAllCategoriesAreCachedInteractor getIfAllCategoriesAreCachedInteractor = new GetIfAllCategoriesAreCachedInteractorImp(this);
+        getIfAllCategoriesAreCachedInteractor.execute(new Runnable()
         {
             @Override
             public void run()
             {
                 // all cached already, no need to download things, just read from DB
-                obtainCategoryList();
+                readDataFromCache();
             }
         }, new Runnable()
         {
@@ -76,7 +85,20 @@ public class CategoriesListActivity extends AppCompatActivity implements SearchV
                 obtainCategoryList();
             }
         });
+    }
 
+    private void readDataFromCache()
+    {
+        GetAllCategoriesFromCacheManager getAllCategoriesFromCacheManager = new GetAllCategoriesFromCacheManagerDAOImp(this);
+        GetAllCategoriesFromCacheInteractor getAllCategoriesFromCacheInteractor = new GetAllCategoriesFromCacheInteractorImp(getAllCategoriesFromCacheManager);
+        getAllCategoriesFromCacheInteractor.execute(new GetAllCategoriesInteractorCompletion()
+        {
+            @Override
+            public void completion(@NonNull Categories categories)
+            {
+                setupRecyclerView(categories);
+            }
+        });
     }
 
     private void obtainCategoryList()
@@ -91,19 +113,21 @@ public class CategoriesListActivity extends AppCompatActivity implements SearchV
                     @Override
                     public void completion(Categories categories)
                     {
+                        //-- Persist in cache all categories --
+                        SaveAllCategoriesIntoCacheManager saveManager = new SaveAllCategoriesIntoCacheManageDAOImp(getBaseContext());
+                        SaveAllCategoriesIntoCacheInteractor saveAllCategoriesIntoCacheInteractor = new SaveAllCategoriesIntoCacheInteractorImp(saveManager);
+                        saveAllCategoriesIntoCacheInteractor.execute(categories, new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                SetAllCategoryAreCachedInteractor setAllCategoryCachedInteractor = new SetAllCategoriesAreCachedInteractorImp(getBaseContext());
+                                setAllCategoryCachedInteractor.execute(true);
+                            }
+                        });
+
+                        setupRecyclerView(categories);
                         mProgressBar.setVisibility(View.INVISIBLE);
-
-                        //-- TODO: persist in cache all shops --
-
-                        //--
-
-                        SetAllCategoryAreCachedInteractor setAllCategoryCachedInteractor = new SetAllCategoriesAreCachedInteractorImp(getBaseContext());
-                        setAllCategoryCachedInteractor.execute(true);
-
-                        mAdapter = new CategoryRecyclerViewAdapter(getBaseContext(), categories);
-                        mRecyclerView.setAdapter(mAdapter);
-
-                        mCategories = categories;
                     }
                 },
                 new InteractorErrorCompletion()
@@ -115,6 +139,14 @@ public class CategoriesListActivity extends AppCompatActivity implements SearchV
                     }
                 }
         );
+    }
+
+    private void setupRecyclerView(Categories categories)
+    {
+        mAdapter = new CategoryRecyclerViewAdapter(getBaseContext(), categories);
+        mRecyclerView.setAdapter(mAdapter);
+
+        mCategories = categories;
     }
 
     @Override

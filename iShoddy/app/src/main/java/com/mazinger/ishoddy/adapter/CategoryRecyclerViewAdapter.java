@@ -48,7 +48,10 @@ public class CategoryRecyclerViewAdapter extends RecyclerView.Adapter<CategoryRe
     @Override
     public void onBindViewHolder(CategoryRecyclerViewAdapter.ViewHolder holder, int position)
     {
-        holder.mTextView.setText(mCategoryList.get(position).getName());
+        String categoryName = mCategoryList.get(position).getName();
+        String upperString = categoryName.substring(0,1).toUpperCase() + categoryName.substring(1).toLowerCase();
+
+        holder.mTextView.setText(upperString);
         holder.mTextView.setTypeface(mTextFace);
         //-- TODO: get image using picasso --
         if (mCategoryList.get(position).getUrlLogo() != null)
