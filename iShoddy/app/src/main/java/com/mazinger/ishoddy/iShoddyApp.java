@@ -2,7 +2,6 @@ package com.mazinger.ishoddy;
 
 import android.support.multidex.MultiDexApplication;
 import android.util.Log;
-
 import com.squareup.picasso.Picasso;
 
 

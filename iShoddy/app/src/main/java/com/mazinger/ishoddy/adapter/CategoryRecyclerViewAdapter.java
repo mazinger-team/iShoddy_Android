@@ -22,6 +22,25 @@ public class CategoryRecyclerViewAdapter extends RecyclerView.Adapter<CategoryRe
     private Typeface mTextFace = null;
     private Context mContext = null;
 
+/*    {
+        {"headerData":{"pagination":{"paginationFlag":false,"paginationKey":""}},
+            "getProfessionalDetailOutputType":
+            {
+                "name" :"Jardines Abelardo",
+                    "description":"Jardinero con experiencia en bosques profundos y montes de venus.",
+                    "rate" : 3.14,
+                    "photos": [{"http://wwww.wewew.com"}, {"http://wwww.wewew.com"}],
+                "localization": {"latitude":3232.2323, "longitude":444.55555},
+                "logo" :"http://www.images.es/Eleelre.png",
+                    "phoneNumber":"654878789",
+                    "numberOfComments" : 27
+            }
+
+        }
+
+*/
+
+
     public CategoryRecyclerViewAdapter(Context context, Categories categoryList)
     {
         mContext = context;
