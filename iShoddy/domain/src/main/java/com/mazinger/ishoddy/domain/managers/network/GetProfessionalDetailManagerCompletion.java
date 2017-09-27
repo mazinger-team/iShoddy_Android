@@ -2,10 +2,7 @@ package com.mazinger.ishoddy.domain.managers.network;
 
 import android.support.annotation.NonNull;
 
-import com.mazinger.ishoddy.domain.managers.entities.CategoryEntity;
-import com.mazinger.ishoddy.domain.managers.entities.GetProfessionalDetailResponseType;
-
-import java.util.List;
+import com.mazinger.ishoddy.domain.managers.entities.getProfessionalDetail.GetProfessionalDetailResponseType;
 
 /**
  * Created by davidcavajimenez on 21/9/17.

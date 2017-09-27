@@ -5,9 +5,6 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.pm.PackageManager;
-import android.content.res.TypedArray;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -15,14 +12,11 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.PopupWindow;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,22 +28,19 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.mazinger.ishoddy.R;
 import com.mazinger.ishoddy.domain.interactors.GetProfessionalDetailInteractor;
 import com.mazinger.ishoddy.domain.interactors.GetProfessionalDetailInteractorCompletion;
 import com.mazinger.ishoddy.domain.interactors.GetProfessionalDetailInteractorImpl;
 import com.mazinger.ishoddy.domain.interactors.InteractorErrorCompletion;
-import com.mazinger.ishoddy.domain.managers.entities.GetProfessionalDetailResponseType;
-import com.mazinger.ishoddy.domain.managers.entities.common.Localization;
+import com.mazinger.ishoddy.domain.managers.entities.common.Location;
+import com.mazinger.ishoddy.domain.managers.entities.getProfessionalDetail.GetProfessionalDetailResponseType;
 import com.mazinger.ishoddy.domain.managers.network.GetProfessionalDetailManager;
 import com.mazinger.ishoddy.domain.managers.network.GetProfessionalDetailManagerImpl;
-import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -91,6 +82,9 @@ public class ProfessionalDetailFragment extends Fragment {
 
     @BindView(R.id.viewpager)
     public ViewPager viewpager;
+
+    @BindView(R.id.pageIndicatorView)
+    public com.rd.PageIndicatorView mPageIndicatorView;
 
     @BindView(R.id.img_logo)
     public ImageView imgLogo;
@@ -203,20 +197,22 @@ public class ProfessionalDetailFragment extends Fragment {
     }
 
     private void loadScreen( final GetProfessionalDetailResponseType getProfessionalDetailResponseType ){
-        txtProfessionalName.setText(getProfessionalDetailResponseType.getGetProfessionalDetailOutputType().getName() );
-        txtComents.setText( String.valueOf( getProfessionalDetailResponseType.getGetProfessionalDetailOutputType().getNumberOfComments()) + " " + getString(R.string.comments) );
+        txtProfessionalName.setText(getProfessionalDetailResponseType.getGetProfessionalDetailOutputType().getProfessional().getCorpName() );
+        txtComents.setText( String.valueOf( getProfessionalDetailResponseType.getGetProfessionalDetailOutputType().getProfessional().getDemands().size()) + " " + getString(R.string.comments) );
 
-        rateValoration.setRating( (float) getProfessionalDetailResponseType.getGetProfessionalDetailOutputType().getRate() );
-        txtDescription.setText(getProfessionalDetailResponseType.getGetProfessionalDetailOutputType().getDescription());
+        rateValoration.setRating( getProfessionalDetailResponseType.getGetProfessionalDetailOutputType().getProfessional().getRating().floatValue() );
+        txtDescription.setText(getProfessionalDetailResponseType.getGetProfessionalDetailOutputType().getProfessional().getDescription());
 
         Picasso.with(getActivity())
-                .load(getProfessionalDetailResponseType.getGetProfessionalDetailOutputType().getLogo())
+                .load(getProfessionalDetailResponseType.getGetProfessionalDetailOutputType().getProfessional().getLogoUrl())
                 .into(imgLogo);
 
         mPhotos  = new ArrayList<String>();
-        mPhotos =  getProfessionalDetailResponseType.getGetProfessionalDetailOutputType().getPhotos();
+        mPhotos =  getProfessionalDetailResponseType.getGetProfessionalDetailOutputType().getProfessional().getImagesUrl();
         mCustomPagerAdapter = new CustomPagerAdapter( getActivity() );
         viewpager.setAdapter(mCustomPagerAdapter);
+        mPageIndicatorView.setViewPager(viewpager);
+
     }
 
 
@@ -296,18 +292,17 @@ public class ProfessionalDetailFragment extends Fragment {
 
     private void loadProfessionalToMap(final GetProfessionalDetailResponseType getProfessionalDetailResponseType) {
 
-        if (getProfessionalDetailResponseType.getGetProfessionalDetailOutputType().getLocalization().getLatitude()!=null &&
-                getProfessionalDetailResponseType.getGetProfessionalDetailOutputType().getLocalization().getLongitude()!= null ) {
+        if (getProfessionalDetailResponseType.getGetProfessionalDetailOutputType().getProfessional().getLocation()!=null) {
 
-            Localization loc = getProfessionalDetailResponseType.getGetProfessionalDetailOutputType().getLocalization();
+            Location loc = getProfessionalDetailResponseType.getGetProfessionalDetailOutputType().getProfessional().getLocation();
 
             MarkerOptions markerOptions = new MarkerOptions()
-                    .position(new LatLng(loc.getLatitude(), loc.getLongitude()))
-                    .title(getProfessionalDetailResponseType.getGetProfessionalDetailOutputType().getName()).icon(BitmapDescriptorFactory.fromResource(R.drawable.marker));
+                    .position(new LatLng(loc.getCoordinates().get(0), loc.getCoordinates().get(1)))
+                    .title(getProfessionalDetailResponseType.getGetProfessionalDetailOutputType().getProfessional().getDescription()).icon(BitmapDescriptorFactory.fromResource(R.drawable.marker));
 
-            mMap.addMarker(markerOptions).setTag(getProfessionalDetailResponseType.getGetProfessionalDetailOutputType().getName());
+            mMap.addMarker(markerOptions).setTag(getProfessionalDetailResponseType.getGetProfessionalDetailOutputType().getProfessional().getCorpName());
             CameraPosition cameraPosition = new CameraPosition.Builder().target(
-                    new LatLng(loc.getLatitude(), loc.getLongitude())).zoom(10).build();
+                    new LatLng(loc.getCoordinates().get(0), loc.getCoordinates().get(1))).zoom(10).build();
             mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
         }
 

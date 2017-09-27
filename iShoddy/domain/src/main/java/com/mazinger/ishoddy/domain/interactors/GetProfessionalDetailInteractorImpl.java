@@ -3,17 +3,10 @@ package com.mazinger.ishoddy.domain.interactors;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.mazinger.ishoddy.domain.managers.entities.CategoryEntity;
-import com.mazinger.ishoddy.domain.managers.entities.GetProfessionalDetailResponseType;
-import com.mazinger.ishoddy.domain.managers.network.CategoryEntityIntoCategoriesMapper;
-import com.mazinger.ishoddy.domain.managers.network.GetAllCategoriesManagerCompletion;
+import com.mazinger.ishoddy.domain.managers.entities.getProfessionalDetail.GetProfessionalDetailResponseType;
 import com.mazinger.ishoddy.domain.managers.network.GetProfessionalDetailManager;
 import com.mazinger.ishoddy.domain.managers.network.GetProfessionalDetailManagerCompletion;
 import com.mazinger.ishoddy.domain.managers.network.ManagerErrorCompletion;
-import com.mazinger.ishoddy.domain.managers.network.NetworkManager;
-import com.mazinger.ishoddy.domain.model.Categories;
-
-import java.util.List;
 
 /**
  * Created by davidcavajimenez on 21/9/17.

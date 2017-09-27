@@ -11,12 +11,9 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.GsonBuilder;
 import com.mazinger.domain.R;
-import com.mazinger.ishoddy.domain.managers.entities.CategoryEntity;
-import com.mazinger.ishoddy.domain.managers.entities.GetProfessionalDetailResponseType;
-import com.mazinger.ishoddy.domain.managers.jsonparser.CategoriesJsonParser;
+import com.mazinger.ishoddy.domain.managers.entities.getProfessionalDetail.GetProfessionalDetailResponseType;
 
 import java.lang.ref.WeakReference;
-import java.util.List;
 
 /**
  * Created by davidcavajimenez on 21/9/17.

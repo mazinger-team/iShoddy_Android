@@ -1,4 +1,4 @@
-package com.mazinger.ishoddy.domain.managers.entities;
+package com.mazinger.ishoddy.domain.managers.entities.getProfessionalDetail;
 
 import com.google.gson.annotations.SerializedName;
 import com.mazinger.ishoddy.domain.managers.entities.common.HeaderData;

@@ -34,24 +34,24 @@
 
         <!-- Activities -->
         <activity android:name=".activities.CategoriesListActivity">
-            <!--  <intent-filter>
+              <intent-filter>
                <action android:name="android.intent.action.MAIN"/>
 
                <category android:name="android.intent.category.LAUNCHER"/>
-           </intent-filter>-->
+           </intent-filter>
        </activity>
 
        <activity android:name=".activities.ProfessionalDetailActivity">
-         <intent-filter>
+        <!-- <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+            </intent-filter>-->
          </activity>
 
         <meta-data
              android:name="com.google.android.maps.v2.API_KEY"
-             android:value="AIzaSyA3B8zku3kHVh5FSEbeqs64vbuocnlUvCw" />
+             android:value="" />
 
          <meta-data
              android:name="com.google.android.gms.version"
