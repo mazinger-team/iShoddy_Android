@@ -6,4 +6,6 @@
 
     <color name="darkPurple">#6a3281</color>
     <color name="lightPurple">#8e44ad</color>
+    <color name="cardBackground">#f2f2f2</color>
+    <color name="textColor">#4d4d4d</color>
 </resources>

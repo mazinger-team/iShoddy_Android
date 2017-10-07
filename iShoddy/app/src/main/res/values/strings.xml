@@ -3,6 +3,12 @@
     <string name="request_service_button_text">Solicita Servicio</string>
     <string name="offer_service_button_text">Ofrece Servicio</string>
     <string name="category_list_activity_menu_item_all_text">TODOS</string>
+    <string name="item_professionals_list_professional_name">Barman Antonio</string>
+    <string name="item_professionals_list_category_name">Eventos</string>
+    <string name="item_professionals_list_professional_image_description">Imagen Professional</string>
+    <string name="item_professionals_list_professional_rating_description">No reviews</string>
+    <string name="item_professionals_list_professional_photos_description">0</string>
+    <string name="item_professionals_list_professional_distance_description">100m</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
