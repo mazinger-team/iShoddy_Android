@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="ENDPOINT_CATEGORIES">http://www.mocky.io/v2/59badac50f00005104622a16</string>
+    <string name="ENDPOINT_PROFESIONALS">http://ec2-54-202-209-58.us-west-2.compute.amazonaws.com/api/v1/professionals</string>
     <string name="ENDPOINT_PROFESIONAL_DETAIL">http://ec2-54-202-209-58.us-west-2.compute.amazonaws.com/api/v1/professionals?id=59ba645df3ae7320e85bb599</string>
 </resources>
