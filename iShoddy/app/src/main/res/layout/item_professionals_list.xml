@@ -2,7 +2,7 @@
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/item_professional_list"
+    android:id="@+id/item_professional_list__carvdview"
     cardCornerRadius="8dp"
     cardUseCompatPadding="true"
     android:layout_width="160dp"
@@ -10,13 +10,16 @@
     android:layout_margin="16dp">
 
     <RelativeLayout
+        android:id="@+id/item_professional_list__relativelayout1"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:id="@+id/item_professional_list__relativelayout1_linearlayout1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            tools:ignore="UselessParent">
 
             <ImageView
                 android:id="@+id/item_professional_list__professional_logo"
@@ -28,6 +31,7 @@
                 android:src="@drawable/professionalLogo"/>
 
             <LinearLayout
+                android:id="@+id/item_professional_list__relativelayout1_linearlayout1_linearlayout1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/cardBackground"
@@ -55,12 +59,14 @@
                     android:textSize="13sp"/>
 
                 <LinearLayout
+                    android:id="@+id/item_professional_list__relativelayout1_linearlayout1_linearlayout1_linearlayout1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:orientation="horizontal">
 
                     <LinearLayout
+                        android:id="@+id/item_professional_list__relativelayout1_linearlayout1_linearlayout1_linearlayout1_linearlayout1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="bottom"
@@ -90,23 +96,28 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/item_professional_list__relativelayout1_linearlayout1_linearlayout1_linearlayout1_linearlayout2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:baselineAligned="false">
 
                         <LinearLayout
+                            android:id="@+id/item_professional_list__relativelayout1_linearlayout1_linearlayout1_linearlayout1_linearlayout2_linearlayout1"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            tools:ignore="UseCompoundDrawables">
 
                             <ImageView
                                 android:id="@+id/item_professional_list__professional_photos_icon"
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
                                 android:layout_gravity="center"
-                                android:src="@drawable/CameraPhoto"/>
+                                android:src="@drawable/CameraPhoto"
+                                android:contentDescription="@string/item_professionals_list_professional_photos_description"/>
 
                             <TextView
                                 android:id="@+id/item_professional_list__professional_photos_count"
@@ -122,18 +133,21 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/item_professional_list__relativelayout1_linearlayout1_linearlayout1_linearlayout1_linearlayout2_linearlayout2"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            tools:ignore="UseCompoundDrawables">
 
                             <ImageView
                                 android:id="@+id/item_professional_list__professional_distance_icon"
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
                                 android:layout_gravity="center"
-                                android:src="@drawable/Marker_2"/>
+                                android:src="@drawable/Marker_2"
+                                android:contentDescription="@string/item_professionals_list_professional_distance_description"/>
 
                             <TextView
                                 android:id="@+id/item_professional_list__professional_dictance_count"
