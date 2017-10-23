@@ -14,6 +14,7 @@ import com.mazinger.ishoddy.domain.interactors.PostRegisterUserInteractorComplet
 import com.mazinger.ishoddy.domain.interactors.PostRegisterUserInteractorImpl;
 import com.mazinger.ishoddy.domain.managers.network.NetworkPostManager;
 import com.mazinger.ishoddy.domain.managers.network.PostUserRegisterImpl;
+import com.mazinger.ishoddy.domain.model.User;
 import com.mazinger.ishoddy.fragments.RegisterAndLoginFragment;
 
 import org.json.JSONException;
@@ -50,16 +51,10 @@ public class RegisterUserActivity extends AppCompatActivity implements RegisterA
 
                 new PostRegisterUserInteractorCompletion() {
                     @Override
-                    public void completion(@NonNull JSONObject jsonResponse) {
+                    public void completion(@NonNull User user) {
 
-                        // Save user date in user singleton
-                        // User user = User.getInstance();
-                        // user.of(userResponse.getEmail(), userResponse.getId());
-                        Log.d("iShoddy", "json response es: " + jsonResponse);
-
-                        // Next activity with Extra 'user'
-                        // Todo........ NAVEGAR HASTA ACTIVIDAD RegisterProfessionalQuiestionActivity
-
+                        Intent intent = new Intent(getApplicationContext(), RegisterProfessionalQuestionActivity.class);
+                        startActivity(intent);
                     }
                 }
                 ,
@@ -74,21 +69,6 @@ public class RegisterUserActivity extends AppCompatActivity implements RegisterA
                 }
 
         );
-
-
-        // Si ha ido bien: guardamos email+pass+token en User.singleton
-        //                 + matamos actividad para volver a la que nos llamó
-
-        // Si ha ido mal: mostramos error que viene en cabecera
-
-
-        // Next activity navigator ... TODO ............... próxima actividad tras register?
-
-
-        Intent intent = new Intent(this, RegisterProfessionalQuestionActivity.class);
-        // TODO...... pasar userID
-        // intent.putExtra(RegisterProfessionalQuestionActivity.EXTRA_USERID, userId);
-        startActivity(intent);
 
     }
 

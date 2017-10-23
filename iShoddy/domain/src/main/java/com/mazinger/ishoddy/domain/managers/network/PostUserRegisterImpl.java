@@ -11,8 +11,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.JsonRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.mazinger.ishoddy.domain.interactors.PostRegisterUserInteractorCompletion;
+import com.mazinger.ishoddy.domain.managers.entities.UserEntity;
+import com.mazinger.ishoddy.domain.managers.jsonparser.UserJsonParser;
 
 import org.json.JSONObject;
 
@@ -20,18 +23,16 @@ import java.lang.ref.WeakReference;
 
 public class PostUserRegisterImpl implements NetworkPostManager {
 
-
     WeakReference<Context> weakContext;
-    JSONObject jsonResponse;
 
     public PostUserRegisterImpl(Context context) {
         weakContext = new WeakReference<Context>(context);
     }
 
     @Override
-    public void execute(@NonNull final PostRegisterUserInteractorCompletion completion,
-                        @NonNull final JSONObject jsonRegister,
-                        @Nullable final ManagerErrorCompletion errorCompletion) {
+    public void postDataToServer(@NonNull final PostManagerCompletion completion,
+                                 @NonNull final JSONObject jsonRegister,
+                                 @Nullable final ManagerErrorCompletion errorCompletion) {
 
         String url = "http://ec2-54-202-209-58.us-west-2.compute.amazonaws.com/api/v1/user/user";
         // String url = weakContext.get().getString(R.string.shops_url);
@@ -41,13 +42,17 @@ public class PostUserRegisterImpl implements NetworkPostManager {
         final JsonRequest jsonRequest = new JsonObjectRequest(
                 Request.Method.POST,
                 url,
-                jsonRegister,                           // pares clave-valor para petición POST
-                new Response.Listener<JSONObject>() {   // manejo resultados
+                jsonRegister,
+                new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
 
-                        jsonResponse = response;
-                        completion.completion(jsonResponse);
+                        UserJsonParser parser = new UserJsonParser();
+                        UserEntity entity = parser.parser(response.toString());
+                        Log.d("iShoddy", "response.toString() =" + response);
+                        if (completion != null) {
+                            completion.completion(entity);
+                        }
 
                     }
                 },
@@ -67,6 +72,7 @@ public class PostUserRegisterImpl implements NetworkPostManager {
                 }
         );
         queue.add(jsonRequest);
+
 
 
     }

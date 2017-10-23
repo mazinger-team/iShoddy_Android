@@ -47,7 +47,6 @@ public class RegisterAndLoginFragment extends Fragment {
         final Button buttonAccept = (Button) root.findViewById(R.id.activity_register__button_accept);
         final Button buttonCancel = (Button) root.findViewById(R.id.activity_register__button_cancel);
 
-
         // Button actions
         buttonAccept.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -6,13 +6,13 @@ public class User {
     private String name;
     private String lastname;
     private String token;
-    private Long id;
+    private String id;
     private String email;
     private String password;
     private Number telephone;
 
 
-    public static User of(String email, Long id){
+    public static User of(String email, String id){
         User user = new User();
 
         user.email = email;
@@ -32,6 +32,7 @@ public class User {
         }
         return userInstance;
     }
+
 
     public String getName() {
         return name;
@@ -60,11 +61,11 @@ public class User {
         return this;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public User setId(Long id) {
+    public User setId(String id) {
         this.id = id;
         return this;
     }
@@ -94,5 +95,13 @@ public class User {
     public User setTelephone(Number telephone) {
         this.telephone = telephone;
         return this;
+    }
+
+    public static User getUserInstance() {
+        return userInstance;
+    }
+
+    public static void setUserInstance(User userInstance) {
+        User.userInstance = userInstance;
     }
 }

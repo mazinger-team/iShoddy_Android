@@ -4,8 +4,11 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
+import com.mazinger.ishoddy.domain.managers.entities.UserEntity;
 import com.mazinger.ishoddy.domain.managers.network.ManagerErrorCompletion;
 import com.mazinger.ishoddy.domain.managers.network.NetworkPostManager;
+import com.mazinger.ishoddy.domain.managers.network.PostManagerCompletion;
+import com.mazinger.ishoddy.domain.model.User;
 
 import org.json.JSONObject;
 
@@ -25,7 +28,7 @@ public class PostRegisterUserInteractorImpl implements PostRegisterUserInteracto
     public void execute(@NonNull final PostRegisterUserInteractorCompletion completion,
                         @NonNull final JSONObject jsonRegister,
                         @Nullable final InteractorErrorCompletion onError) {
-        // manager.execute(completion, jsonRegister, onError);
+        // manager.postDataToServer(completion, jsonRegister, onError);
 
         if (this.postManager == null) {
             if (onError == null) {
@@ -35,16 +38,23 @@ public class PostRegisterUserInteractorImpl implements PostRegisterUserInteracto
             }
         }
 
-        this.postManager.execute(new PostRegisterUserInteractorCompletion() {
-                                     @Override
-                                     public void completion(@NonNull JSONObject json) {
-                                         Log.d("iShoddy", "json response from interactor es: " + json);
-                                         // if (completion != null) {
-                                         // Future actions
-                                         // }
-                                     }
-                                 }, jsonRegister,
-                new ManagerErrorCompletion() {
+        this.postManager.postDataToServer(new PostManagerCompletion() {
+
+               @Override
+               public void completion(@NonNull UserEntity userEntity) {
+
+                   Log.d("iShoddy", "json response from interactor es: " + userEntity.toString());
+
+                   if (completion != null) {
+                       // mapper
+                       User user = User.of("mail", "1");
+                       completion.completion(user);
+                   }
+
+               }
+        },
+        jsonRegister,
+        new ManagerErrorCompletion() {
                     @Override
                     public void onError(String errorDescription) {
                         if (onError != null) {
@@ -52,7 +62,6 @@ public class PostRegisterUserInteractorImpl implements PostRegisterUserInteracto
                         }
                     }
                 });
-
     }
 
 

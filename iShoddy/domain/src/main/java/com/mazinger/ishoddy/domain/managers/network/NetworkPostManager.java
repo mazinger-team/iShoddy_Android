@@ -9,9 +9,9 @@ import org.json.JSONObject;
 
 public interface NetworkPostManager {
 
-    void execute(@NonNull final PostRegisterUserInteractorCompletion completion,
-                 @NonNull final JSONObject jsonRegister,
-                 @Nullable final ManagerErrorCompletion errorCompletion);
+    void postDataToServer(@NonNull final PostManagerCompletion completion,
+                          @NonNull final JSONObject jsonRegister,
+                          @Nullable final ManagerErrorCompletion errorCompletion);
 
 }
 
