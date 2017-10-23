@@ -67,7 +67,6 @@ public class RegisterUserActivity extends AppCompatActivity implements RegisterA
                         // Todo....Mostrar error en un Snacbar o Alert
                     }
                 }
-
         );
 
     }
