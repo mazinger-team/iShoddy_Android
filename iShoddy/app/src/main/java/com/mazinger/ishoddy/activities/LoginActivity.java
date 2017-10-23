@@ -3,6 +3,7 @@ package com.mazinger.ishoddy.activities;
 import android.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -14,13 +15,24 @@ import com.mazinger.ishoddy.fragments.RegisterAndLoginFragment;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class LoginActivity extends AppCompatActivity implements RegisterAndLoginFragment.OnMailAndPasswordListener {
+
+    @BindView(R.id.toolbar) Toolbar mToolbar;
+    // @BindView(R.id.toolbar_title) TextView toolbarTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         setTitle("Login");
+        ButterKnife.bind(this);
+        setSupportActionBar(mToolbar);
+        // toolbarTitle.setText("Login");
+
 
         FragmentManager fm = getFragmentManager();
         if (fm.findFragmentById(R.id.activity_login__fragment) == null) {

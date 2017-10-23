@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
 import com.mazinger.ishoddy.R;
@@ -20,13 +21,22 @@ import com.mazinger.ishoddy.fragments.RegisterAndLoginFragment;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class RegisterUserActivity extends AppCompatActivity implements RegisterAndLoginFragment.OnMailAndPasswordListener{
+
+    @BindView(R.id.toolbar) Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_user);
+
         setTitle("Registro");
+        ButterKnife.bind(this);
+        setSupportActionBar(mToolbar);
+
 
         FragmentManager fm = getFragmentManager();
         if (fm.findFragmentById(R.id.activity_register_user__fragment) == null) {

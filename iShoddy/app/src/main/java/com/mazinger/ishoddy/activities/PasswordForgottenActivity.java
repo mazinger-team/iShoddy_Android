@@ -4,18 +4,29 @@ import android.content.Intent;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.mazinger.ishoddy.R;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class PasswordForgottenActivity extends AppCompatActivity {
+
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_password_forgotten);
+
+        setTitle("Password");
+        ButterKnife.bind(this);
+        setSupportActionBar(mToolbar);
 
 
         final EditText email = (EditText) findViewById(R.id.activity_password__forgotten_textedit_email);

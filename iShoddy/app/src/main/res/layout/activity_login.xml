@@ -7,6 +7,8 @@
     android:layout_height="match_parent"
     tools:context="com.mazinger.ishoddy.activities.LoginActivity">
 
+    <include layout="@layout/toolbar_layout"/>
+
     <FrameLayout
         android:id="@+id/activity_login__fragment"
         android:layout_width="match_parent"
@@ -18,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/activity_login__fragment"
         android:text="Olvidé mi contraseña"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true"
         />
 

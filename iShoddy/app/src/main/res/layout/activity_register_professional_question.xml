@@ -7,4 +7,8 @@
     android:layout_height="match_parent"
     tools:context="com.mazinger.ishoddy.activities.RegisterProfessionalQuestionActivity">
 
+
+    <include layout="@layout/toolbar_layout"/>
+
+
 </android.support.constraint.ConstraintLayout>
