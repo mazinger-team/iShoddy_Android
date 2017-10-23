@@ -5,6 +5,7 @@ public class User {
 
     private String name;
     private String lastname;
+    private String token;
     private Long id;
     private String email;
     private String password;
@@ -13,6 +14,7 @@ public class User {
 
     public static User of(String email, Long id){
         User user = new User();
+
         user.email = email;
         user.id = id;
 
@@ -23,14 +25,13 @@ public class User {
 
     // Singleton
     public static User userInstance;
-    
+
     public static User getInstance() {
         if  (userInstance == null){
             userInstance = new User();
         }
         return userInstance;
     }
-
 
     public String getName() {
         return name;
@@ -47,6 +48,15 @@ public class User {
 
     public User setLastname(String lastname) {
         this.lastname = lastname;
+        return this;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public User setToken(String token) {
+        this.token = token;
         return this;
     }
 
@@ -85,5 +95,4 @@ public class User {
         this.telephone = telephone;
         return this;
     }
-
 }
