@@ -31,49 +31,6 @@ public class ProfessionalListViewAdapter extends BaseAdapter {
         mTextFace = Typeface.createFromAsset(mContext.getAssets(), "SFText-Regular.otf");
     }
 
-    /*
-    public void setOnClickListener(View.OnClickListener onClickListener) {
-        mOnClickListener = onClickListener;
-    }
-
-    public ProfessionalListViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_professionals_list, parent, false);
-
-        view.setOnClickListener(mOnClickListener);
-
-        return new ViewHolder(view);
-    }
-
-    public void onBindViewHolder(ProfessionalListViewAdapter.ViewHolder holder, int position) {
-        holder.mTextView_Corp_name.setText(mProfessionalList.get(position).getCorp_name());
-        holder.mTextView_Corp_name.setTypeface(mTextFace);
-
-        String categoryName = mProfessionalList.get(position).getCategory().getName();
-        String upperString = categoryName.substring(0,1).toUpperCase() + categoryName.substring(1).toLowerCase();
-        holder.mTextView_Category.setText(upperString);
-        holder.mTextView_Category.setTypeface(mTextFace);
-
-        holder.mRatingBar_Rating.setRating(Float.valueOf(String.valueOf(mProfessionalList.get(position).getRating())));
-
-        if (mProfessionalList.get(position).getReviews_number() != 0) {
-            holder.mTextView_Num_reviews.setText(String.valueOf(mProfessionalList.get(position).getReviews_number()).concat(" ").concat(mContext.getString(R.string.string_reviews)));
-        } else {
-            holder.mTextView_Num_reviews.setText(R.string.string_no_reviews);
-        }
-
-        holder.mTextView_Num_photos.setText(String.valueOf(mProfessionalList.get(position).getPhoto_number()));
-        holder.mTextView_Distance.setText(String.valueOf(mProfessionalList.get(position).getDistance()));
-
-        // TODO: get image using picasso
-        if (mProfessionalList.get(position).getLogo_url() != null) {
-            Picasso.with(mContext)
-                    .load(mProfessionalList.get(position).getLogo_url())
-                    .placeholder(R.drawable.professional_logo)
-                    //.networkPolicy(NetworkPolicy.OFFLINE)
-                    .into(holder.mImageView_Logo);
-        }
-    }
-*/
     public int getItemCount() {
         return (int) mProfessionalList.size();
     }
@@ -127,7 +84,6 @@ public class ProfessionalListViewAdapter extends BaseAdapter {
             viewHolder.mRatingBar_Rating.setRating(Float.valueOf(String.valueOf(professional.getRating())));
         }
 
-
         if (professional.getReviews_number() != null) {
             if (professional.getReviews_number() != 0) {
                 viewHolder.mTextView_Num_reviews.setText(String.valueOf(professional.getReviews_number()).concat(" ").concat(mContext.getString(R.string.string_reviews)));
@@ -151,36 +107,6 @@ public class ProfessionalListViewAdapter extends BaseAdapter {
                     //.networkPolicy(NetworkPolicy.OFFLINE)
                     .into(viewHolder.mImageView_Logo);
         }
-
-        /*
-        mTextView_Corp_name.setText(mProfessionalList.get(position).getCorp_name());
-        mTextView_Corp_name.setTypeface(mTextFace);
-
-        String categoryName = mProfessionalList.get(position).getCategory().getName();
-        String upperString = categoryName.substring(0,1).toUpperCase() + categoryName.substring(1).toLowerCase();
-        mTextView_Category.setText(upperString);
-        mTextView_Category.setTypeface(mTextFace);
-
-        mRatingBar_Rating.setRating(Float.valueOf(String.valueOf(mProfessionalList.get(position).getRating())));
-
-        if (mProfessionalList.get(position).getReviews_number() != 0) {
-            mTextView_Num_reviews.setText(String.valueOf(mProfessionalList.get(position).getReviews_number()).concat(" ").concat(mContext.getString(R.string.string_reviews)));
-        } else {
-            mTextView_Num_reviews.setText(R.string.string_no_reviews);
-        }
-
-        mTextView_Num_photos.setText(String.valueOf(mProfessionalList.get(position).getPhoto_number()));
-        mTextView_Distance.setText(String.valueOf(mProfessionalList.get(position).getDistance()));
-
-        // TODO: get image using picasso
-        if (mProfessionalList.get(position).getLogo_url() != null) {
-            Picasso.with(mContext)
-                    .load(mProfessionalList.get(position).getLogo_url())
-                    .placeholder(R.drawable.professional_logo)
-                    //.networkPolicy(NetworkPolicy.OFFLINE)
-                    .into(mImageView_Logo);
-        }
-        */
 
         return convertView;
     }

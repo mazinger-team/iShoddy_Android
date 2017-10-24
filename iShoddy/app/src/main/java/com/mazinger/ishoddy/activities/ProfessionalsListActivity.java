@@ -8,8 +8,6 @@ import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.util.Pair;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -21,7 +19,6 @@ import android.widget.ProgressBar;
 
 import com.mazinger.ishoddy.R;
 import com.mazinger.ishoddy.adapter.ProfessionalListViewAdapter;
-import com.mazinger.ishoddy.adapter.ProfessionalRecyclerViewAdapter;
 import com.mazinger.ishoddy.domain.interactors.InteractorErrorCompletion;
 import com.mazinger.ishoddy.domain.interactors.Professional.GetAllProfessionalsInteractor;
 import com.mazinger.ishoddy.domain.interactors.Professional.GetAllProfessionalsInteractorCompletion;
@@ -32,9 +29,6 @@ import com.mazinger.ishoddy.domain.model.Pagination.Pagination;
 import com.mazinger.ishoddy.domain.model.Professional.Professional;
 import com.mazinger.ishoddy.domain.model.Professional.Professionals;
 import com.mazinger.ishoddy.util.EndlessScrollListener;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -140,8 +134,9 @@ public class ProfessionalsListActivity extends AppCompatActivity implements Adap
 
                                     obtainProfessionalsList(filter, order, fields, mPagination.getPaginationKey());
                                     return true;
+                                } else {
+                                    return false;
                                 }
-                                return false;
                             }
                         });
                     }
