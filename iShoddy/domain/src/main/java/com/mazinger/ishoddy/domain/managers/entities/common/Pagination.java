@@ -4,6 +4,7 @@ package com.mazinger.ishoddy.domain.managers.entities.common;
  * Created by davidcavajimenez on 21/9/17.
  */
 
+/*
 public class Pagination
 {
     private boolean paginationFlag;
@@ -26,3 +27,4 @@ public class Pagination
         this.paginationKey = paginationKey;
     }
 }
+*/

@@ -4,7 +4,7 @@ package com.mazinger.ishoddy.domain.managers.entities.Professional;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Category {
+public class ProfessionalsCategory {
 
     @SerializedName("_id")
     @Expose

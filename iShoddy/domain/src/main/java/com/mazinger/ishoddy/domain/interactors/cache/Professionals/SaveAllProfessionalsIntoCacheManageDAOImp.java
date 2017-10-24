@@ -26,7 +26,7 @@ public class SaveAllProfessionalsIntoCacheManageDAOImp implements SaveAllProfess
     {
         /*
         ProfessionalDAO dao = new ProfessionalDAO(contextWeakReference.get());
-        for (Professional professional : professionals.allProfessionals())
+        for (ProfessionalsEntity professional : professionals.allProfessionals())
         {
             dao.insert(professional);
         }

@@ -3,12 +3,16 @@ package com.mazinger.ishoddy.domain.managers.entities.Professional;
 import com.google.gson.annotations.SerializedName;
 import com.mazinger.ishoddy.domain.managers.entities.common.HeaderData;
 
-public class GetProfessionalResponseType {
+
+
+
+
+public class ProfessionalsResponseType {
     @SerializedName("headerData")
     private HeaderData headerData;
 
     @SerializedName("listProfessionalsOutputType")
-    private GetProfessionalOutputType getProfessionalOutputType;
+    private ProfessionalsOutputType mProfessionalsOutputType;
 
     public HeaderData getHeaderData() {
         return this.headerData;
@@ -18,11 +22,11 @@ public class GetProfessionalResponseType {
         this.headerData = headerData;
     }
 
-    public GetProfessionalOutputType getGetProfessionalOutputType() {
-        return this.getProfessionalOutputType;
+    public ProfessionalsOutputType getProfessionalsOutputType() {
+        return this.mProfessionalsOutputType;
     }
 
-    public void setGetProfessionalOutputType(GetProfessionalOutputType getProfessionalOutputType) {
-        this.getProfessionalOutputType = getProfessionalOutputType;
+    public void setProfessionalsOutputType(ProfessionalsOutputType professionalsOutputType) {
+        this.mProfessionalsOutputType = professionalsOutputType;
     }
 }

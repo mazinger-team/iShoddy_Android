@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.mazinger.ishoddy.R;
 import com.mazinger.ishoddy.domain.model.Categories;
 import com.mazinger.ishoddy.domain.model.Category;
+import com.mazinger.ishoddy.domain.model.Professional.Professional;
 import com.squareup.picasso.Picasso;
 
 public class CategoryRecyclerViewAdapter extends RecyclerView.Adapter<CategoryRecyclerViewAdapter.ViewHolder>

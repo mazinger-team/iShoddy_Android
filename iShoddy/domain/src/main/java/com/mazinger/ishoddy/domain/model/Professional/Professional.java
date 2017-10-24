@@ -1,30 +1,21 @@
 package com.mazinger.ishoddy.domain.model.Professional;
 
+import com.mazinger.ishoddy.domain.managers.entities.Professional.ProfessionalsCategory;
 import com.mazinger.ishoddy.domain.model.Category;
+
+import android.support.annotation.NonNull;
 
 public class Professional
 {
-    public String id;
-    public String user_name;
-    public String corp_name;
-    public Category category;
-    public String logo_url;
-    public Double rating;
-    public Integer reviews_number;
-    public Integer photo_number;
-    public Double distance;
-
-    public Professional(String id, String user_name, String corp_name, Category category, String logo_url, Double rating, Integer reviews_number, Integer photo_number, Double distance) {
-        this.id = id;
-        this.user_name = user_name;
-        this.corp_name = corp_name;
-        this.category = category;
-        this.logo_url = logo_url;
-        this.rating = rating;
-        this.reviews_number = reviews_number;
-        this.photo_number = photo_number;
-        this.distance = distance;
-    }
+    private String id;
+    private String user_name;
+    private String corp_name;
+    private Category category;
+    private String logo_url;
+    private Double rating;
+    private Integer reviews_number;
+    private Integer photo_number;
+    private Double distance;
 
     public static Professional of(String id, String user_name, String corp_name, Category category, String logo_url, Double rating, Integer reviews_number, Integer photo_number, Double distance) {
 
@@ -43,6 +34,23 @@ public class Professional
         return professional;
     }
 
+    private Professional(String id, String user_name, String corp_name, Category category, String logo_url, Double rating, Integer reviews_number, Integer photo_number, Double distance) {
+        this.id = id;
+        this.user_name = user_name;
+        this.corp_name = corp_name;
+        this.category = category;
+        this.logo_url = logo_url;
+        this.rating = rating;
+        this.reviews_number = reviews_number;
+        this.photo_number = photo_number;
+        this.distance = distance;
+    }
+
+
+    public Professional(String user_name) {
+        this.user_name = user_name;
+    }
+
     public String getId() {
         return id;
     }
@@ -57,7 +65,7 @@ public class Professional
         return user_name;
     }
 
-    public Professional setUser_name(String user_name) {
+    public Professional setUser_name(@NonNull final String user_name) {
         this.user_name = user_name;
         return this;
     }
@@ -124,7 +132,4 @@ public class Professional
         this.distance = distance;
         return this;
     }
-
-
-
 }

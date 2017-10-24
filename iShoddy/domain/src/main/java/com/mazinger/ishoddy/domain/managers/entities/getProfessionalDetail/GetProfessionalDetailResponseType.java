@@ -14,6 +14,9 @@ public class GetProfessionalDetailResponseType {
     @SerializedName("getProfessionalDetailOutputType")
     private GetProfessionalDetailOutputType getProfessionalDetailOutputType;
 
+    //@SerializedName("headerData.paginationData")
+    //private Pagination pagintationData;
+
     public HeaderData getHeaderData() {
         return this.headerData;
     }
@@ -22,6 +25,14 @@ public class GetProfessionalDetailResponseType {
         this.headerData = headerData;
     }
 
+    //public Pagination getPagintationData() {
+    //    return this.pagintationData;
+    //}
+
+    //public void setPagintationData(Pagination pagintationData) {
+    //    this.pagintationData = pagintationData;
+    //}
+
     public GetProfessionalDetailOutputType getGetProfessionalDetailOutputType() {
         return this.getProfessionalDetailOutputType;
     }
@@ -29,4 +40,6 @@ public class GetProfessionalDetailResponseType {
     public void setGetProfessionalDetailOutputType(GetProfessionalDetailOutputType getProfessionalDetailOutputType) {
         this.getProfessionalDetailOutputType = getProfessionalDetailOutputType;
     }
+
+
 }

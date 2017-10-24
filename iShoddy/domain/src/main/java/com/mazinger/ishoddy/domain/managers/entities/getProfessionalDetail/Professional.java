@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.mazinger.ishoddy.domain.managers.entities.common.Location;
+import com.mazinger.ishoddy.domain.managers.entities.common.Location2;
 
 public class Professional {
 
@@ -53,7 +53,7 @@ public class Professional {
     private String province;
     @SerializedName("location")
     @Expose
-    private Location location;
+    private Location2 location;
     @SerializedName("web_url")
     @Expose
     private String webUrl;
@@ -212,11 +212,11 @@ public class Professional {
         this.province = province;
     }
 
-    public Location getLocation() {
+    public Location2 getLocation() {
         return location;
     }
 
-    public void setLocation(Location location) {
+    public void setLocation(Location2 location) {
         this.location = location;
     }
 

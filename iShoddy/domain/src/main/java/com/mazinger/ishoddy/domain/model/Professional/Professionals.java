@@ -5,32 +5,26 @@ import android.support.annotation.NonNull;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Professionals implements ProfessionalsIterable, ProfessionalsUpdatable
-{
+public class Professionals implements ProfessionalsIterable, ProfessionalsUpdatable {
     private List<Professional> professionals;
 
-    public static Professionals from(@NonNull final List<Professional> professionalList)
-    {
+    public static Professionals from(@NonNull final List<Professional> professionalList) {
         final Professionals professionals = new Professionals();
 
-        for (final Professional professional : professionalList)
-        {
+        for (final Professional professional : professionalList) {
             professionals.add(professional);
         }
 
         return professionals;
     }
 
-    public Professionals()
-    {
+    public Professionals() {
 
     }
 
     // lazy getter
-    private List<Professional> getProfessionals()
-    {
-        if (professionals == null)
-        {
+    private List<Professional> getProfessionals() {
+        if (professionals == null) {
             professionals = new LinkedList<>();
         }
 
@@ -43,6 +37,12 @@ public class Professionals implements ProfessionalsIterable, ProfessionalsUpdata
         getProfessionals().add(professional);
     }
 
+    public void addAll(Professionals professionals) {
+        for(Professional professional : professionals.allProfessionals() ) {
+            add(professional);
+        }
+    }
+
     @Override
     public void delete(Professional professional)
     {
@@ -50,30 +50,25 @@ public class Professionals implements ProfessionalsIterable, ProfessionalsUpdata
     }
 
     @Override
-    public void update(Professional newProfessional, long index)
-    {
+    public void update(Professional newProfessional, long index) {
         getProfessionals().set((int)index, newProfessional);
     }
 
     @Override
-    public long size()
-    {
+    public long size() {
         return getProfessionals().size();
     }
 
     @Override
-    public Professional get(long index)
-    {
+    public Professional get(long index) {
         return getProfessionals().get((int)index);
     }
 
     @Override
-    public List<Professional> allProfessionals()
-    {
+    public List<Professional> allProfessionals() {
         List<Professional> listCopy = new LinkedList<>();
 
         for (Professional professional : getProfessionals()) {
-
             listCopy.add(professional);
         }
 

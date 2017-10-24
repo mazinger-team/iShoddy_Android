@@ -1,164 +1,176 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/item_professional_list__carvdview"
-    cardCornerRadius="8dp"
-    cardUseCompatPadding="true"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="160dp"
     android:layout_height="190dp"
-    android:layout_margin="16dp">
+    android:orientation="vertical"
+    android:layout_margin="16dp"
+    android:layout_columnSpan="2">
 
-    <RelativeLayout
-        android:id="@+id/item_professional_list__relativelayout1"
+    <android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/item_professional_list__carvdview"
+        cardCornerRadius="8dp"
+        cardUseCompatPadding="true"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:clickable="true">
 
-        <LinearLayout
-            android:id="@+id/item_professional_list__relativelayout1_linearlayout1"
+        <RelativeLayout
+            android:id="@+id/item_professional_list__relativelayout1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            tools:ignore="UselessParent">
-
-            <ImageView
-                android:id="@+id/item_professional_list__professional_logo"
-                android:layout_width="wrap_content"
-                android:layout_height="120dp"
-                android:contentDescription="@string/item_professionals_list_professional_image_description"
-                android:cropToPadding="true"
-                android:scaleType="centerInside"
-                android:src="@drawable/professionalLogo"/>
+            android:layout_height="match_parent">
 
             <LinearLayout
-                android:id="@+id/item_professional_list__relativelayout1_linearlayout1_linearlayout1"
+                android:id="@+id/item_professional_list__relativelayout1_linearlayout1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/cardBackground"
                 android:orientation="vertical"
-                android:weightSum="1">
+                tools:ignore="UselessParent">
 
-                <TextView
-                    android:id="@+id/item_professional_list__professional_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="20dp"
-                    android:layout_margin="0dp"
-                    android:gravity="center"
-                    android:text="@string/item_professionals_list_professional_name"
-                    android:textColor="@color/textColor"
-                    android:textSize="13sp"/>
-
-                <TextView
-                    android:id="@+id/item_professional_list__professional_category"
-                    android:layout_width="match_parent"
-                    android:layout_height="20dp"
-                    android:layout_margin="0dp"
-                    android:gravity="center"
-                    android:text="@string/item_professionals_list_category_name"
-                    android:textColor="@color/textColor"
-                    android:textSize="13sp"/>
+                <ImageView
+                    android:id="@+id/item_professional_list__professional_logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="120dp"
+                    android:contentDescription="@string/item_professionals_list_professional_image_description"
+                    android:cropToPadding="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/professional_logo"/>
 
                 <LinearLayout
-                    android:id="@+id/item_professional_list__relativelayout1_linearlayout1_linearlayout1_linearlayout1"
+                    android:id="@+id/item_professional_list__relativelayout1_linearlayout1_linearlayout1"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:orientation="horizontal">
+                    android:layout_height="match_parent"
+                    android:background="@color/cardBackground"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/item_professional_list__professional_corp_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:layout_margin="0dp"
+                        android:gravity="center"
+                        android:text="@string/item_professionals_list_professional_name"
+                        android:textColor="@color/textColor"
+                        android:textSize="13sp"/>
+
+                    <TextView
+                        android:id="@+id/item_professional_list__professional_category"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:layout_margin="0dp"
+                        android:gravity="center"
+                        android:text="@string/item_professionals_list_category_name"
+                        android:textColor="@color/textColor"
+                        android:textSize="13sp"/>
 
                     <LinearLayout
-                        android:id="@+id/item_professional_list__relativelayout1_linearlayout1_linearlayout1_linearlayout1_linearlayout1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom"
-                        android:orientation="vertical">
-
-                        <android.support.v7.widget.AppCompatRatingBar
-                            android:id="@+id/item_professional_list__professional_ratinbar"
-                            style="?android:attr/ratingBarStyleSmall"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:numStars="5"
-                            android:rating="2.5"
-                            android:stepSize="0.5"/>
-
-                        <TextView
-                            android:id="@+id/item_professional_list__professional_rating_description"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_margin="0dp"
-                            android:gravity="center"
-                            android:text="@string/item_professionals_list_professional_rating_description"
-                            android:textColor="@color/textColor"
-                            android:textSize="8sp"/>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/item_professional_list__relativelayout1_linearlayout1_linearlayout1_linearlayout1_linearlayout2"
+                        android:id="@+id/item_professional_list__relativelayout1_linearlayout1_linearlayout1_linearlayout1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:baselineAligned="false">
+                        android:layout_gravity="center"
+                        android:orientation="horizontal">
 
                         <LinearLayout
-                            android:id="@+id/item_professional_list__relativelayout1_linearlayout1_linearlayout1_linearlayout1_linearlayout2_linearlayout1"
-                            android:layout_width="0dp"
+                            android:id="@+id/item_professional_list__relativelayout1_linearlayout1_linearlayout1_linearlayout1_linearlayout1"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            tools:ignore="UseCompoundDrawables">
+                            android:layout_gravity="bottom"
+                            android:orientation="vertical">
 
-                            <ImageView
-                                android:id="@+id/item_professional_list__professional_photos_icon"
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
+                            <android.support.v7.widget.AppCompatRatingBar
+                                android:id="@+id/item_professional_list__professional_ratingbar"
+                                style="?android:attr/ratingBarStyleSmall"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
                                 android:layout_gravity="center"
-                                android:src="@drawable/CameraPhoto"
-                                android:contentDescription="@string/item_professionals_list_professional_photos_description"/>
+                                android:numStars="5"
+                                android:rating="2.5"
+                                android:stepSize="0.5"/>
 
                             <TextView
-                                android:id="@+id/item_professional_list__professional_photos_count"
+                                android:id="@+id/item_professional_list__professional_rating_count"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_gravity="center"
                                 android:layout_margin="0dp"
                                 android:gravity="center"
-                                android:text="@string/item_professionals_list_professional_photos_description"
+                                android:text="@string/item_professionals_list_professional_rating_description"
                                 android:textColor="@color/textColor"
                                 android:textSize="8sp"/>
 
                         </LinearLayout>
 
                         <LinearLayout
-                            android:id="@+id/item_professional_list__relativelayout1_linearlayout1_linearlayout1_linearlayout1_linearlayout2_linearlayout2"
-                            android:layout_width="0dp"
+                            android:id="@+id/item_professional_list__relativelayout1_linearlayout1_linearlayout1_linearlayout1_linearlayout2"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            tools:ignore="UseCompoundDrawables">
+                            android:orientation="horizontal"
+                            android:baselineAligned="false">
 
-                            <ImageView
-                                android:id="@+id/item_professional_list__professional_distance_icon"
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
+                            <LinearLayout
+                                android:id="@+id/item_professional_list__relativelayout1_linearlayout1_linearlayout1_linearlayout1_linearlayout2_linearlayout1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:src="@drawable/Marker_2"
-                                android:contentDescription="@string/item_professionals_list_professional_distance_description"/>
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                tools:ignore="UseCompoundDrawables">
 
-                            <TextView
-                                android:id="@+id/item_professional_list__professional_dictance_count"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
+                                <ImageView
+                                    android:id="@+id/item_professional_list__professional_photos_icon"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/camera_photo"
+                                    android:contentDescription="@string/item_professionals_list_professional_photos_description"/>
+
+                                <TextView
+                                    android:id="@+id/item_professional_list__professional_photos_count"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center"
+                                    android:layout_margin="0dp"
+                                    android:gravity="center"
+                                    android:text="@string/item_professionals_list_professional_photos_description"
+                                    android:textColor="@color/textColor"
+                                    android:textSize="8sp"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/item_professional_list__relativelayout1_linearlayout1_linearlayout1_linearlayout1_linearlayout2_linearlayout2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:layout_margin="0dp"
-                                android:gravity="center"
-                                android:text="@string/item_professionals_list_professional_distance_description"
-                                android:textColor="@color/textColor"
-                                android:textSize="8sp"/>
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                tools:ignore="UseCompoundDrawables">
+
+                                <ImageView
+                                    android:id="@+id/item_professional_list__professional_distance_icon"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/marker_2"
+                                    android:contentDescription="@string/item_professionals_list_professional_distance_description"/>
+
+                                <TextView
+                                    android:id="@+id/item_professional_list__professional_dictance_count"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center"
+                                    android:layout_margin="0dp"
+                                    android:gravity="center"
+                                    android:text="@string/item_professionals_list_professional_distance_description"
+                                    android:textColor="@color/textColor"
+                                    android:textSize="8sp"/>
+
+                            </LinearLayout>
 
                         </LinearLayout>
 
@@ -168,8 +180,8 @@
 
             </LinearLayout>
 
-        </LinearLayout>
+        </RelativeLayout>
 
-    </RelativeLayout>
+    </android.support.v7.widget.CardView>
 
-</android.support.v7.widget.CardView>
+</LinearLayout>
