@@ -8,4 +8,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="comments">comentarios</string>
     <string name="aceptar">Aceptar</string>
+    <string name="activity_register__message_indata">Introduzca sus datos</string>
+    <string name="activity_password_forgotten__textmail_insertmail_text">Introduzca su email</string>
 </resources>
