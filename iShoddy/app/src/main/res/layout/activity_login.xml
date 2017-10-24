@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/activity_login__fragment"
         android:text="Olvidé mi contraseña"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="@dimen/activity_login__forgotpass_magin_top"
         android:layout_centerHorizontal="true"
         />
 
