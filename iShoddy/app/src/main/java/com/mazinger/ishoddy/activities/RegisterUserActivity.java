@@ -61,7 +61,7 @@ public class RegisterUserActivity extends AppCompatActivity implements RegisterA
 
                 new PostRegisterUserInteractorCompletion() {
                     @Override
-                    public void completion(@NonNull String token) {
+                    public void completion(@NonNull JSONObject response) {
 
                         Intent intent = new Intent(getApplicationContext(), RegisterProfessionalQuestionActivity.class);
                         startActivity(intent);
@@ -74,7 +74,6 @@ public class RegisterUserActivity extends AppCompatActivity implements RegisterA
                     @Override
                     public void onError(String errorDescription) {
                         Log.d("iShoddy", "ha ocurrido un error: " + errorDescription);
-                        // Todo....Mostrar error en un Snacbar o Alert
                     }
                 }
         );

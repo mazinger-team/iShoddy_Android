@@ -1,6 +1,8 @@
 package com.mazinger.ishoddy.activities;
 
 import android.app.FragmentManager;
+import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -10,6 +12,19 @@ import android.widget.TextView;
 
 import com.mazinger.ishoddy.Navigator.Navigator;
 import com.mazinger.ishoddy.R;
+import com.mazinger.ishoddy.domain.interactors.InteractorErrorCompletion;
+import com.mazinger.ishoddy.domain.interactors.PostRegisterUserInteractor;
+import com.mazinger.ishoddy.domain.interactors.PostRegisterUserInteractorCompletion;
+import com.mazinger.ishoddy.domain.interactors.PostRegisterUserInteractorImpl;
+import com.mazinger.ishoddy.domain.interactors.cache.SaveAllCategoriesIntoCacheInteractor;
+import com.mazinger.ishoddy.domain.interactors.cache.SaveAllCategoriesIntoCacheInteractorImp;
+import com.mazinger.ishoddy.domain.interactors.cache.SaveUserDataAndTokenInteractor;
+import com.mazinger.ishoddy.domain.interactors.cache.SaveUserDataAndTokenInteractorImpl;
+import com.mazinger.ishoddy.domain.managers.cache.SaveUserDataAndTokenManager;
+import com.mazinger.ishoddy.domain.managers.cache.SaveUserDataAndTokenManagerImpl;
+import com.mazinger.ishoddy.domain.managers.network.NetworkPostManager;
+import com.mazinger.ishoddy.domain.managers.network.PostLoginImpl;
+import com.mazinger.ishoddy.domain.managers.network.PostUserRegisterImpl;
 import com.mazinger.ishoddy.fragments.RegisterAndLoginFragment;
 
 import org.json.JSONException;
@@ -57,12 +72,41 @@ public class LoginActivity extends AppCompatActivity implements RegisterAndLogin
     public void OnMailAndPassword(String mailString, String passwordString) {
 
         // JSON built
-        JSONObject jsonRegister = JSONBuilt(mailString, passwordString);
+        JSONObject jsonLogin = JSONBuilt(mailString, passwordString);
 
-        Log.v("iShoddy", jsonRegister.toString());
+        // Register peticion
+        NetworkPostManager manager = new PostLoginImpl(this);
+        PostRegisterUserInteractor postRegisterUserInteractor = new PostRegisterUserInteractorImpl(manager, jsonLogin);
+        postRegisterUserInteractor.execute(
 
-        // Json post         ... TODO ..........pass.....
-        // Next activity run ... TODO ...............
+                new PostRegisterUserInteractorCompletion() {
+                    @Override
+                    public void completion(@NonNull JSONObject response) {
+
+                        // Save User data and token
+                        SaveUserDataAndTokenManager manager = new SaveUserDataAndTokenManagerImpl(getApplicationContext());
+                        SaveUserDataAndTokenInteractor saveUserDataAndTokenInteractor = new SaveUserDataAndTokenInteractorImpl(manager, response);
+                        saveUserDataAndTokenInteractor.execute(new Runnable() {
+                            @Override
+                            public void run() {
+
+                            }
+                        }, response);
+
+                        Intent intent = new Intent(getApplicationContext(), CategoriesListActivity.class);
+                        startActivity(intent);
+                    }
+                }
+                ,
+                jsonLogin
+                ,
+                new InteractorErrorCompletion(){
+                    @Override
+                    public void onError(String errorDescription) {
+                        Log.d("iShoddy", "ha ocurrido un error: " + errorDescription);
+                    }
+                }
+        );
 
     }
 
@@ -72,7 +116,7 @@ public class LoginActivity extends AppCompatActivity implements RegisterAndLogin
         final JSONObject jsonRegister = new JSONObject();
 
         try {
-            jsonRegister.put("mail", mailString);
+            jsonRegister.put("email", mailString);
             jsonRegister.put("password", passwordString);
 
         } catch (JSONException e) {

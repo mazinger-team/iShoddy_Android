@@ -41,12 +41,12 @@ public class PostRegisterUserInteractorImpl implements PostRegisterUserInteracto
         this.postManager.postDataToServer(new PostManagerCompletion() {
 
                @Override
-               public void completion(@NonNull String token) {
+               public void completion(@NonNull JSONObject response) {
 
-                   Log.d("iShoddy", "token " + token);
+                   Log.d("iShoddy", response.toString());
 
                    if (completion != null) {
-                       completion.completion(token);
+                       completion.completion(response);
                    }
 
                }
