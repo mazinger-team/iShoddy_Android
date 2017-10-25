@@ -9,5 +9,5 @@ import org.json.JSONObject;
 
 public interface PostRegisterUserInteractorCompletion {
 
-    void completion(@NonNull final User user);
+    void completion(@NonNull final JSONObject response);
 }

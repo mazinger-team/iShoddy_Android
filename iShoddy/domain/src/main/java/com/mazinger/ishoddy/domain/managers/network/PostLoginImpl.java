@@ -5,53 +5,70 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.JsonRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.mazinger.domain.R;
-import com.mazinger.ishoddy.domain.interactors.PostRegisterUserInteractorCompletion;
-import com.mazinger.ishoddy.domain.managers.entities.UserEntity;
-import com.mazinger.ishoddy.domain.managers.jsonparser.UserJsonParser;
+import com.mazinger.ishoddy.domain.managers.entities.LoginEntity;
+import com.mazinger.ishoddy.domain.managers.jsonparser.LoginResponseJsonParser;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.lang.ref.WeakReference;
+import java.util.HashMap;
+import java.util.Map;
 
-public class PostUserRegisterImpl implements NetworkPostManager {
+public class PostLoginImpl implements NetworkPostManager {
 
     WeakReference<Context> weakContext;
 
-    public PostUserRegisterImpl(Context context) {
+    public PostLoginImpl(Context context) {
         weakContext = new WeakReference<Context>(context);
     }
 
+
     @Override
     public void postDataToServer(@NonNull final PostManagerCompletion completion,
-                                 @NonNull final JSONObject jsonRegister,
+                                 @NonNull final JSONObject jsonLogin,
                                  @Nullable final ManagerErrorCompletion errorCompletion) {
 
-        String url = weakContext.get().getString(R.string.url_register);
+        String url = weakContext.get().getString(R.string.url_login);
 
         final RequestQueue queue = Volley.newRequestQueue(weakContext.get());
 
         final JsonRequest jsonRequest = new JsonObjectRequest(
                 Request.Method.POST,
                 url,
-                jsonRegister,
+                jsonLogin,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
 
-                        // Last response in result
-                        // UserJsonParser parser = new UserJsonParser();
-                        // UserEntity entity = parser.parser(response.toString());
+                        String token = "";
+                        final String id;
+                        final JSONObject jsonResponse;
 
-                        Log.d("iShoddy", "response.toString() =" + response);
+                        // Last response in result
+                        // LoginResponseJsonParser parser = new LoginResponseJsonParser();
+                        // LoginEntity entity = parser.parser(response.toString());
+
+                        // Capturamos el token de header y lo añadimos a response
+                        // Todo: captures Token from Header
+                        try {
+                            response.put("token", token);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                        Log.d("iShoddy", "response.toString() =" + response.toString());
+
+
                         if (completion != null) {
                             completion.completion(response);
                         }
@@ -73,12 +90,11 @@ public class PostUserRegisterImpl implements NetworkPostManager {
 
                 }
         );
+
         queue.add(jsonRequest);
 
 
 
+
     }
-
-
-
 }
