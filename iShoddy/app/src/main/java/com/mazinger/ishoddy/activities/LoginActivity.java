@@ -89,8 +89,7 @@ public class LoginActivity extends AppCompatActivity implements RegisterAndLogin
                         saveUserDataAndTokenInteractor.execute(new Runnable() {
                             @Override
                             public void run() {
-                                Intent intent = new Intent(getApplicationContext(), CategoriesListActivity.class);
-                                startActivity(intent);
+                                Navigator.navigateFromLoginActivityToCategoriesListActivity(LoginActivity.this);
                             }
                         }, response);
 
