@@ -33,11 +33,6 @@
 
         <!-- Activities -->
         <activity android:name=".activities.CategoriesListActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
         <activity android:name=".activities.ProfessionalDetailActivity">
         </activity>
@@ -50,12 +45,19 @@
             android:value="@integer/google_play_services_version"/>
 
         <activity android:name=".activities.RegisterUserActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
         <activity android:name=".activities.RegisterProfessionalQuestionActivity">
         </activity>
         <activity android:name=".activities.LoginActivity">
         </activity>
         <activity android:name=".activities.PasswordForgottenActivity">
+        </activity>
+        <activity android:name=".activities.RegisterAsProfessionalActivity">
         </activity>
     </application>
 

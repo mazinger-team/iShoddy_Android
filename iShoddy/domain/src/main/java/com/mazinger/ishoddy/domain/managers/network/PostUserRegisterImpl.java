@@ -13,6 +13,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.mazinger.domain.R;
 import com.mazinger.ishoddy.domain.interactors.PostRegisterUserInteractorCompletion;
 import com.mazinger.ishoddy.domain.managers.entities.UserEntity;
 import com.mazinger.ishoddy.domain.managers.jsonparser.UserJsonParser;
@@ -34,8 +35,7 @@ public class PostUserRegisterImpl implements NetworkPostManager {
                                  @NonNull final JSONObject jsonRegister,
                                  @Nullable final ManagerErrorCompletion errorCompletion) {
 
-        String url = "http://ec2-54-202-209-58.us-west-2.compute.amazonaws.com/api/v1/user/user";
-        // String url = weakContext.get().getString(R.string.shops_url);
+        String url = weakContext.get().getString(R.string.url_register);
 
         final RequestQueue queue = Volley.newRequestQueue(weakContext.get());
 
@@ -51,7 +51,7 @@ public class PostUserRegisterImpl implements NetworkPostManager {
                         UserEntity entity = parser.parser(response.toString());
                         Log.d("iShoddy", "response.toString() =" + response);
                         if (completion != null) {
-                            completion.completion(entity);
+                            completion.completion("");
                         }
 
                     }

@@ -10,5 +10,41 @@
 
     <include layout="@layout/toolbar_layout"/>
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="@string/register_question_professional_register"
+        android:textAlignment="center"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <Button
+        android:id="@+id/register_professional_question_activity__yes_button"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="SI"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <Button
+        android:id="@+id/register_professional_question_activity__no_button"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="26dp"
+        android:text="NO"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register_professional_question_activity__yes_button" />
 
 </android.support.constraint.ConstraintLayout>

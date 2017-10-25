@@ -41,14 +41,12 @@ public class PostRegisterUserInteractorImpl implements PostRegisterUserInteracto
         this.postManager.postDataToServer(new PostManagerCompletion() {
 
                @Override
-               public void completion(@NonNull UserEntity userEntity) {
+               public void completion(@NonNull String token) {
 
-                   Log.d("iShoddy", "json response from interactor es: " + userEntity.toString());
+                   Log.d("iShoddy", "token " + token);
 
                    if (completion != null) {
-                       // mapper
-                       User user = User.of("mail", "1");
-                       completion.completion(user);
+                       completion.completion(token);
                    }
 
                }

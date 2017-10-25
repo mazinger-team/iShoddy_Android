@@ -61,7 +61,7 @@ public class RegisterUserActivity extends AppCompatActivity implements RegisterA
 
                 new PostRegisterUserInteractorCompletion() {
                     @Override
-                    public void completion(@NonNull User user) {
+                    public void completion(@NonNull String token) {
 
                         Intent intent = new Intent(getApplicationContext(), RegisterProfessionalQuestionActivity.class);
                         startActivity(intent);
