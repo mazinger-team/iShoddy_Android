@@ -17,6 +17,7 @@ import com.mazinger.domain.R;
 import com.mazinger.ishoddy.domain.managers.entities.LoginEntity;
 import com.mazinger.ishoddy.domain.managers.jsonparser.LoginResponseJsonParser;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.lang.ref.WeakReference;
@@ -57,10 +58,13 @@ public class PostLoginImpl implements NetworkPostManager {
                         // LoginResponseJsonParser parser = new LoginResponseJsonParser();
                         // LoginEntity entity = parser.parser(response.toString());
 
-
                         // Capturamos el token de header y lo añadimos a response
                         // Todo: captures Token from Header
-                        // response.put("token", token);
+                        try {
+                            response.put("token", token);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
 
                         Log.d("iShoddy", "response.toString() =" + response.toString());
 

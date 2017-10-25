@@ -2,6 +2,7 @@ package com.mazinger.ishoddy.domain.managers.jsonparser;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
 import com.mazinger.ishoddy.domain.managers.entities.LoginEntity;
 import com.mazinger.ishoddy.domain.managers.entities.LoginResponseEntity;
 import com.mazinger.ishoddy.domain.managers.entities.UserEntity;
@@ -24,10 +25,10 @@ public class LoginResponseJsonParser {
 
         try {
             Gson gson = new GsonBuilder().create();
-            // Reader reader = new StringReader(response);
+            Reader reader = new StringReader(response.toString());
             // LoginResponseEntity loginResponseEntity = gson.fromJson(reader, LoginResponseEntity.class);
             // loginEntity = loginResponseEntity.getResult();
-            // loginEntity = gson.fromJson(reader, LoginEntity.class);
+            loginEntity = gson.fromJson(reader, LoginEntity.class);
 
         } catch (Exception e) {
             e.printStackTrace();
