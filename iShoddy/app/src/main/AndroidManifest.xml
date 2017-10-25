@@ -33,11 +33,6 @@
 
         <!-- Activities -->
         <activity android:name=".activities.CategoriesListActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
         <activity android:name=".activities.ProfessionalDetailActivity">
         </activity>
@@ -58,6 +53,11 @@
         <activity android:name=".activities.PasswordForgottenActivity">
         </activity>
         <activity android:name=".activities.RegisterAsProfessionalActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
     </application>
 

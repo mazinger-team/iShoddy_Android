@@ -59,7 +59,7 @@ public class PostLoginImpl implements NetworkPostManager {
                         // LoginEntity entity = parser.parser(response.toString());
 
                         // Capturamos el token de header y lo añadimos a response
-                        // Todo: captures Token from Header
+                        // Todo: capture Token from Header
                         try {
                             response.put("token", token);
                         } catch (JSONException e) {

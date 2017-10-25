@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,4 +9,186 @@
 
     <include layout="@layout/toolbar_layout"/>
 
-</android.support.constraint.ConstraintLayout>
+
+    <ScrollView
+        android:layout_marginTop="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:src="@drawable/avatar"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_register_professional__magin_top_image"
+                android:id="@+id/activity_register_professional__userImage"
+                android:layout_centerHorizontal="true"/>
+
+
+            <EditText
+                android:id="@+id/activity_register_professional__name"
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_register_professional_margin_under_image"
+                android:layout_marginStart="@dimen/activity_register_professional__margin_start_end"
+                android:layout_marginEnd="@dimen/activity_register_professional__margin_start_end"
+                android:layout_below="@id/activity_register_professional__userImage"
+                android:layout_alignParentStart="true"/>
+            <TextView
+                android:id="@+id/activity_register_professional__title_name"
+                android:text="Nombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_register_professional__margin_start_end"
+                android:layout_marginEnd="@dimen/activity_register_professional__margin_start_end"
+                android:paddingStart="@dimen/activity_register_professional__padding_titles"
+                android:paddingEnd="@dimen/activity_register_professional__padding_titles"
+                android:layout_below="@id/activity_register_professional__name"
+                android:layout_alignParentStart="true"/>
+
+            <EditText
+                android:id="@+id/activity_register_professional__mail"
+                android:inputType="textEmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_register_professional__margin_start_end"
+                android:layout_marginEnd="@dimen/activity_register_professional__margin_start_end"
+                android:layout_below="@id/activity_register_professional__title_name"
+                android:layout_alignParentStart="true"/>
+            <TextView
+                android:id="@+id/activity_register_professional__title_mail"
+                android:text="Email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_register_professional__margin_start_end"
+                android:layout_marginEnd="@dimen/activity_register_professional__margin_start_end"
+                android:paddingStart="@dimen/activity_register_professional__padding_titles"
+                android:paddingEnd="@dimen/activity_register_professional__padding_titles"
+                android:layout_below="@id/activity_register_professional__mail"
+                android:layout_alignParentStart="true"/>
+
+            <EditText
+                android:id="@+id/activity_register_professional__telephone"
+                android:inputType="numberDecimal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_register_professional__margin_start_end"
+                android:layout_marginEnd="@dimen/activity_register_professional__margin_start_end"
+                android:layout_below="@id/activity_register_professional__title_mail"
+                android:layout_alignParentStart="true"/>
+            <TextView
+                android:id="@+id/activity_register_professional__title_telephone"
+                android:text="Telefono"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_register_professional__margin_start_end"
+                android:layout_marginEnd="@dimen/activity_register_professional__margin_start_end"
+                android:paddingStart="@dimen/activity_register_professional__padding_titles"
+                android:paddingEnd="@dimen/activity_register_professional__padding_titles"
+                android:layout_below="@id/activity_register_professional__telephone"
+                android:layout_alignParentStart="true"/>
+
+            <EditText
+                android:id="@+id/activity_register_professional__address"
+                android:inputType="numberDecimal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_register_professional__margin_start_end"
+                android:layout_marginEnd="@dimen/activity_register_professional__margin_start_end"
+                android:layout_below="@id/activity_register_professional__title_telephone"
+                android:layout_alignParentStart="true"/>
+            <TextView
+                android:id="@+id/activity_register_professional__title_address"
+                android:text="Dirección"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_register_professional__margin_start_end"
+                android:layout_marginEnd="@dimen/activity_register_professional__margin_start_end"
+                android:paddingStart="@dimen/activity_register_professional__padding_titles"
+                android:paddingEnd="@dimen/activity_register_professional__padding_titles"
+                android:layout_below="@id/activity_register_professional__address"
+                android:layout_alignParentStart="true"/>
+
+            <EditText
+                android:id="@+id/activity_register_professional__category"
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_register_professional__margin_start_end"
+                android:layout_marginEnd="@dimen/activity_register_professional__margin_start_end"
+                android:layout_below="@id/activity_register_professional__title_address"
+                android:layout_alignParentStart="true"/>
+            <TextView
+                android:id="@+id/activity_register_professional__title_category"
+                android:text="Categoría de Servicio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_register_professional__margin_start_end"
+                android:layout_marginEnd="@dimen/activity_register_professional__margin_start_end"
+                android:paddingStart="@dimen/activity_register_professional__padding_titles"
+                android:paddingEnd="@dimen/activity_register_professional__padding_titles"
+                android:layout_below="@id/activity_register_professional__category"
+                android:layout_alignParentStart="true"/>
+
+            <EditText
+                android:id="@+id/activity_register_professional__subcategory"
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_register_professional__margin_start_end"
+                android:layout_marginEnd="@dimen/activity_register_professional__margin_start_end"
+                android:layout_below="@id/activity_register_professional__title_category"
+                android:layout_alignParentStart="true"/>
+            <TextView
+                android:id="@+id/activity_register_professional__title_subcategory"
+                android:text="Subcategoría"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_register_professional__margin_start_end"
+                android:layout_marginEnd="@dimen/activity_register_professional__margin_start_end"
+                android:paddingStart="@dimen/activity_register_professional__padding_titles"
+                android:paddingEnd="@dimen/activity_register_professional__padding_titles"
+                android:layout_below="@id/activity_register_professional__subcategory"
+                android:layout_alignParentStart="true"/>
+
+            <EditText
+                android:id="@+id/activity_register_professional__description"
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_register_professional__margin_start_end"
+                android:layout_marginEnd="@dimen/activity_register_professional__margin_start_end"
+                android:layout_below="@id/activity_register_professional__title_subcategory"
+                android:layout_alignParentStart="true"/>
+            <TextView
+                android:id="@+id/activity_register_professional__title_description"
+                android:text="Comentamos brevemente a qué te dedicas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_register_professional__margin_start_end"
+                android:layout_marginEnd="@dimen/activity_register_professional__margin_start_end"
+                android:paddingStart="@dimen/activity_register_professional__padding_titles"
+                android:paddingEnd="@dimen/activity_register_professional__padding_titles"
+                android:layout_below="@id/activity_register_professional__description"
+                android:layout_alignParentStart="true"/>
+
+            <Button
+                android:id="@+id/activity_register_professional__button_next"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/activity_register_professional__button_next"
+                android:layout_below="@id/activity_register_professional__title_description"
+                android:layout_alignEnd="@+id/activity_register__password"/>
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+
+
+</RelativeLayout>

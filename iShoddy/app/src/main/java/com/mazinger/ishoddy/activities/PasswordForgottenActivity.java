@@ -42,7 +42,7 @@ public class PasswordForgottenActivity extends AppCompatActivity {
                 if (validateMail(emailString, v)) {
                     finishActivity();
 
-                    // ToDo: Reset password con envío de email capturado
+                    // ToDo: Gestión de Reset password con envío de email capturado
 
                 }
             }
