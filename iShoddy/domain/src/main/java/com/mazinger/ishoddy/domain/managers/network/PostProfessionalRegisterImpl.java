@@ -5,7 +5,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -14,61 +13,38 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.Volley;
 import com.mazinger.domain.R;
-import com.mazinger.ishoddy.domain.managers.entities.LoginEntity;
-import com.mazinger.ishoddy.domain.managers.jsonparser.LoginResponseJsonParser;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.lang.ref.WeakReference;
-import java.util.HashMap;
-import java.util.Map;
 
-public class PostLoginImpl implements NetworkPostManager {
+public class PostProfessionalRegisterImpl implements NetworkPostManager {
 
     WeakReference<Context> weakContext;
 
-    public PostLoginImpl(Context context) {
+    public PostProfessionalRegisterImpl(Context context) {
         weakContext = new WeakReference<Context>(context);
     }
 
 
     @Override
     public void postDataToServer(@NonNull final PostManagerCompletion completion,
-                                 @NonNull final JSONObject jsonLogin,
+                                 @NonNull final JSONObject jsonRegister,
                                  @Nullable final ManagerErrorCompletion errorCompletion) {
 
-        String url = weakContext.get().getString(R.string.url_login);
+        String url = weakContext.get().getString(R.string.url_register_professional);
 
         final RequestQueue queue = Volley.newRequestQueue(weakContext.get());
 
         final JsonRequest jsonRequest = new JsonObjectRequest(
                 Request.Method.POST,
                 url,
-                jsonLogin,
+                jsonRegister,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
 
-                        String token = "";
-                        final String id;
-                        final JSONObject jsonResponse;
-
-                        // Last response in result
-                        // LoginResponseJsonParser parser = new LoginResponseJsonParser();
-                        // LoginEntity entity = parser.parser(response.toString());
-
-                        // Capturamos el token de header y lo añadimos a response
-                        // Todo: capture Token from Header
-                        try {
-                            response.put("token", token);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
-                        Log.d("iShoddy", "response.toString() =" + response.toString());
-
-
+                        Log.d("iShoddy", "response.toString() =" + response);
                         if (completion != null) {
                             completion.completion(response);
                         }
@@ -90,11 +66,10 @@ public class PostLoginImpl implements NetworkPostManager {
 
                 }
         );
-
         queue.add(jsonRequest);
-
-
 
 
     }
 }
+
+

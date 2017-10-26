@@ -10,4 +10,8 @@
     <dimen name="activity_password_forgotten__textmail_margin_start">24dp</dimen>
     <dimen name="activity_password_forgotten__textmail_margin_top">100dp</dimen>
     <dimen name="activity_password_forgotten__texts_magins">16dp</dimen>
+    <dimen name="activity_register_professional__margin_start_end">25dp</dimen>
+    <dimen name="activity_register_professional_margin_under_image">20dp</dimen>
+    <dimen name="activity_register_professional__padding_titles">5dp</dimen>
+    <dimen name="activity_register_professional__magin_top_image">30dp</dimen>
 </resources>
