@@ -94,7 +94,7 @@
 
             <EditText
                 android:id="@+id/activity_register_professional__address"
-                android:inputType="numberDecimal"
+                android:inputType="text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/activity_register_professional__margin_start_end"
@@ -103,7 +103,7 @@
                 android:layout_alignParentStart="true"/>
             <TextView
                 android:id="@+id/activity_register_professional__title_address"
-                android:text="Dirección"
+                android:text="Calle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/activity_register_professional__margin_start_end"
