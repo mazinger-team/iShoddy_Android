@@ -34,26 +34,22 @@
 
         <!-- Activities -->
         <activity android:name=".activities.CategoriesListActivity">
-            <!--
             <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.ProfessionalsListActivity">
+            <!--
+             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
             -->
         </activity>
-        <activity android:name=".activities.ProfessionalsListActivity">
-
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-
-        </activity>
         <activity android:name=".activities.ProfessionalDetailActivity">
-
             <!--
              <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -63,20 +59,31 @@
             -->
         </activity>
 
-        <!-- Google Maps -->
-        <meta-data
-            android:name="com.google.android.maps.v2.API_KEY"
-            android:value="@string/google_maps_api_key"/>
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version"/>
-
         <!--<activity
             android:name=".activities.ScrollingActivity"
             android:label="@string/title_activity_scrolling"
             android:theme="@style/AppTheme">
         </activity>-->
 
+        <!-- Google Maps -->
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="@string/google_maps_api_key"/>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>
+
+        <activity android:name=".activities.RegisterUserActivity">
+        </activity>
+        <activity android:name=".activities.RegisterProfessionalQuestionActivity">
+        </activity>
+        <activity android:name=".activities.LoginActivity">
+        </activity>
+        <activity android:name=".activities.PasswordForgottenActivity">
+        </activity>
+        <activity android:name=".activities.RegisterAsProfessionalActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -107,4 +107,7 @@
     <string name="action_settings">Settings</string>
     <string name="string_reviews"> reviews</string>
     <string name="string_no_reviews">No reviews</string>
+    <string name="activity_register__message_indata">Introduzca sus datos</string>
+    <string name="activity_password_forgotten__textmail_insertmail_text">Introduzca su email</string>
+    <string name="register_question_professional_register">¿REGISTRARTE TAMBIÉN COMO PROFESIONAL?</string>
 </resources>

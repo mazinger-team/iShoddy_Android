@@ -1,0 +1,78 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:textAlignment="center"
+    tools:context="com.mazinger.ishoddy.fragments.RegisterAndLoginFragment">
+
+
+    <TextView
+        android:id="@+id/activity_register__tittle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="100dp"
+        android:layout_toEndOf="@+id/activity_register__password_title"
+        android:text="@string/activity_register__message_indata" />
+
+
+    <EditText
+        android:id="@+id/activity_register__mail"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/activity_register__tittle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="38dp"
+        android:inputType="textEmailAddress"/>
+
+
+    <TextView
+        android:id="@+id/activity_register__mail_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/activity_register__password"
+        android:layout_below="@+id/activity_register__mail"
+        android:paddingLeft="5dp"
+        android:text="Email"/>
+
+    <EditText
+        android:id="@+id/activity_register__password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/activity_register__mail_title"
+        android:layout_alignStart="@+id/activity_register__mail"
+        android:layout_alignEnd="@+id/activity_register__mail"/>
+
+    <TextView
+        android:id="@+id/activity_register__password_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/activity_register__password"
+        android:layout_below="@+id/activity_register__password"
+        android:paddingLeft="5dp"
+        android:text="Password"/>
+
+    <Button
+        android:id="@+id/activity_register__button_accept"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="58dp"
+        android:text="Aceptar"
+        android:layout_below="@+id/activity_register__password_title"
+        android:layout_alignEnd="@+id/activity_register__password"/>
+
+    <Button
+        android:id="@+id/activity_register__button_cancel"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/activity_register__button_accept"
+        android:layout_alignBottom="@+id/activity_register__button_accept"
+        android:layout_alignStart="@+id/activity_register__password_title"
+        android:text="Cancelar"/>
+
+
+</RelativeLayout>
