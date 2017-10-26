@@ -156,7 +156,7 @@
                                     android:layout_width="20dp"
                                     android:layout_height="20dp"
                                     android:layout_gravity="center"
-                                    android:src="@drawable/marker_2"
+                                    android:src="@drawable/marker2"
                                     android:contentDescription="@string/item_professionals_list_professional_distance_description"/>
 
                                 <TextView
