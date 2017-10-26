@@ -11,4 +11,5 @@
     <string name="activity_register__message_indata">Introduzca sus datos</string>
     <string name="activity_password_forgotten__textmail_insertmail_text">Introduzca su email</string>
     <string name="register_question_professional_register">¿REGISTRARTE TAMBIÉN COMO PROFESIONAL?</string>
+    <string name="activity_register_professional__button_next">Siguiente</string>
 </resources>

@@ -96,7 +96,7 @@ public class RegisterAndLoginFragment extends Fragment {
 
 
     public interface OnMailAndPasswordListener {
-        // TODO: Update argument type and name
+
         void OnMailAndPassword(String mailString, String passwordString);
     }
 
