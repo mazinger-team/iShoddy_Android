@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_list_professionals__relativeLayout"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -28,16 +27,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:columnWidth="160dp"
-                android:numColumns="2"
+                android:numColumns="auto_fit"
                 android:verticalSpacing="10dp"
-                android:stretchMode="spacingWidthUniform">
-
-                <!--<android.support.v7.widget.RecyclerView
-                    android:id="@+id/activity_list_professionals__relativeLayout_linearLayout_coordinatorLayout_gridLayout_recyclerLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />-->
-
-            </GridView>
+                android:stretchMode="spacingWidthUniform"/>
 
         </android.support.design.widget.CoordinatorLayout>
 
