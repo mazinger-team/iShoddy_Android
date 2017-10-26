@@ -31,8 +31,8 @@ public class ProfessionalDetailActivity extends BaseActivity implements Professi
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
 
-
-
+    public static String EXTRA_PARAM_ID = "EXTRA_PARAM_ID";
+    public static String VIEW_NAME_HEADER_IMAGE = "VIEW_NAME_HEADER_IMAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
