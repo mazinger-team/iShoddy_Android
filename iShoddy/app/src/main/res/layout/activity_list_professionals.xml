@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_list_professionals__relativeLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.BaseActivity">
+
+    <LinearLayout
+        android:id="@+id/activity_list_professionals__relativeLayout_linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/toolbar_layout"/>
+
+        <android.support.design.widget.CoordinatorLayout
+            android:id="@+id/activity_list_professionals__relativeLayout_linearLayout_coordinatorLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <GridView
+                android:id="@+id/activity_list_professionals__relativeLayout_linearLayout_coordinatorLayout_gridView"
+                android:paddingTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:columnWidth="160dp"
+                android:numColumns="auto_fit"
+                android:verticalSpacing="10dp"
+                android:stretchMode="spacingWidthUniform"/>
+
+        </android.support.design.widget.CoordinatorLayout>
+
+        <ProgressBar
+            android:id="@+id/activity_list_professionals__relativeLayout_linearLayout_progress_bar"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:visibility="invisible" />
+
+    </LinearLayout>
+
+</RelativeLayout>

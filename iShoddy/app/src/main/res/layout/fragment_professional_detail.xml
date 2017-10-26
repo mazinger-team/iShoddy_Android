@@ -1,0 +1,213 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:weightSum="2"
+              tools:context="com.mazinger.ishoddy.fragments.ProfessionalDetailFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.1"
+        >
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorAccent">
+
+        </android.support.v4.view.ViewPager>
+
+        <TextView
+            android:id="@+id/txt_professionalName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-smallcaps"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:text="Jardines Abelardo "
+            android:textColor="@color/darkPurple"
+            android:textStyle="bold"/>
+
+        <RatingBar
+            android:id="@+id/rateValoration"
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_below="@id/txt_professionalName"
+            android:layout_width="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:progressTint="@color/darkPurple" />
+       <!-- <ImageView
+            android:id="@+id/img_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_professionalName"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/avatar"/>-->
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/img_logo"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/avatar"
+            android:layout_below="@id/txt_professionalName"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            app:civ_border_width="1dp"
+            app:civ_border_color="#FFFFFF"/>
+
+        <TextView
+            android:id="@+id/txt_coments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/rateValoration"
+            android:layout_marginRight="20dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:text="27 comentarios"
+            android:textColor="@color/darkPurple"
+            android:textSize="10sp"/>
+
+        <ImageView
+            android:id="@+id/image_comments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/comments"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/txt_coments"
+            android:layout_marginRight="20dp"/>
+
+        <LinearLayout
+            android:id="@+id/linearPageIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp">
+
+            <com.rd.PageIndicatorView
+                xmlns:attrs="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/pageIndicatorView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                attrs:piv_animationType="scale"
+                attrs:piv_interactiveAnimation="true"
+                />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.9"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.6"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae ex id elit pulvinar lacinia. Suspendisse potenti. Nulla sed tellus in nunc ultricies lobortis eget non nunc. Duis laoreet elit eget lacus congue malesuada. Mauris pharetra ..."/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <LinearLayout
+                    android:id="@+id/linearMyWorks"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/img_add_work"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        app:srcCompat="@drawable/iconworker"/>
+
+                    <TextView
+                        android:id="@+id/my_works"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="10dp"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:text="Mis Trabajos"
+                        android:textColor="@color/lightPurple"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.4"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <FrameLayout
+                android:id="@+id/fragment_container_map"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3">
+
+            </FrameLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.7"
+                android:background="@color/lightPurple">
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    app:srcCompat="@drawable/addprofessional"/>
+
+                <TextView
+                    android:id="@+id/txt_addProfessional"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Darte de alta como profesional"
+                    android:textColor="@android:color/white"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

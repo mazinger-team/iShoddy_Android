@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Domain</string>
+    <string name="url_register">http://ec2-54-202-209-58.us-west-2.compute.amazonaws.com/api/v1/user</string>
+    <string name="url_login">http://ec2-54-202-209-58.us-west-2.compute.amazonaws.com/api/v1/user/login</string>
+</resources>

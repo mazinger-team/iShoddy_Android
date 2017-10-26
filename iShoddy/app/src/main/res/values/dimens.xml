@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="fab_margin">12dp</dimen>
+    <dimen name="category_list_cell_height">180dp</dimen>
+    <dimen name="floating_text_button_margin_bottom">14dp</dimen>
+    <dimen name="activity_login__forgotpass_magin_top">50dp</dimen>
+    <dimen name="activity_password_forgotten__textmail_marginEnd">24dp</dimen>
+    <dimen name="activity_password_forgotten__textmail_marginLeft">24dp</dimen>
+    <dimen name="activity_password_forgotten__textmail_marginRigh">24dp</dimen>
+    <dimen name="activity_password_forgotten__textmail_margin_start">24dp</dimen>
+    <dimen name="activity_password_forgotten__textmail_margin_top">100dp</dimen>
+    <dimen name="activity_password_forgotten__texts_magins">16dp</dimen>
+</resources>
