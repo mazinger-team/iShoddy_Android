@@ -1,5 +1,6 @@
 package com.mazinger.ishoddy.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.view.MenuItemCompat;
@@ -187,6 +188,33 @@ public class CategoriesListActivity extends AppCompatActivity implements SearchV
         mAdapter.setFilter(newList);
 
         return true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        Intent intent = null;
+        switch (item.getItemId()) {
+            case R.id.action_login:
+                intent = new Intent(this, LoginActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.action_registro:
+                intent = new Intent(this, RegisterUserActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.action_registro_profesional:
+                intent = new Intent(this, RegisterAsProfessionalActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.action_show_all:
+                intent = new Intent(this, ProfessionalsListActivity.class);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
 
