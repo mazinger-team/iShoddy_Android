@@ -87,7 +87,7 @@ public class CategoryDAOTests
         CategoryDAO sut = new CategoryDAO(appContext);
 
         for (int i = 0; i < 10; i++) {
-            insertCategory(sut, i, "Category " + i, true);
+            insertCategory(sut, i, "ProfessionalsCategory " + i, true);
         }
     }
 }

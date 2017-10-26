@@ -23,8 +23,8 @@ import com.mazinger.ishoddy.fragments.ProfessionalDetailFragment;
 public class ProfessionalDetailActivity extends BaseActivity implements ProfessionalDetailFragment.OnFragmentInteractionListener {
 
 
-
-
+    public static String EXTRA_PARAM_ID = "EXTRA_PARAM_ID";
+    public static String VIEW_NAME_HEADER_IMAGE = "VIEW_NAME_HEADER_IMAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

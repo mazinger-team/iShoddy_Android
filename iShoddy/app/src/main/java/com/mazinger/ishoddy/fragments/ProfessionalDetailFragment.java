@@ -34,7 +34,7 @@ import com.mazinger.ishoddy.domain.interactors.GetProfessionalDetailInteractor;
 import com.mazinger.ishoddy.domain.interactors.GetProfessionalDetailInteractorCompletion;
 import com.mazinger.ishoddy.domain.interactors.GetProfessionalDetailInteractorImpl;
 import com.mazinger.ishoddy.domain.interactors.InteractorErrorCompletion;
-import com.mazinger.ishoddy.domain.managers.entities.common.Location;
+import com.mazinger.ishoddy.domain.managers.entities.common.Location2;
 import com.mazinger.ishoddy.domain.managers.entities.getProfessionalDetail.GetProfessionalDetailResponseType;
 import com.mazinger.ishoddy.domain.managers.network.GetProfessionalDetailManager;
 import com.mazinger.ishoddy.domain.managers.network.GetProfessionalDetailManagerImpl;
@@ -294,7 +294,7 @@ public class ProfessionalDetailFragment extends Fragment {
 
         if (getProfessionalDetailResponseType.getGetProfessionalDetailOutputType().getProfessional().getLocation()!=null) {
 
-            Location loc = getProfessionalDetailResponseType.getGetProfessionalDetailOutputType().getProfessional().getLocation();
+            Location2 loc = getProfessionalDetailResponseType.getGetProfessionalDetailOutputType().getProfessional().getLocation();
 
             MarkerOptions markerOptions = new MarkerOptions()
                     .position(new LatLng(loc.getCoordinates().get(0), loc.getCoordinates().get(1)))
